@@ -7,16 +7,16 @@ status: Experimental draft (0.1.0-draft.1)
 
 ## Does this show something is mine?
 
-Traceweave records checkable facts — exact byte digests, shared fingerprint spans, decoded mark bits, and signature checks ([spec/core.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/core.md), [spec/extraction.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/extraction.md)). Ownership, authorship, and permission are judgments for people.
+Traceweave produces checkable facts about your work — exact byte digests, shared fingerprint spans, decoded mark bits, and signature checks ([spec/core.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/core.md), [spec/extraction.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/extraction.md)). It does not lock content, and it does not make the call on ownership, authorship, or permission. What you do with the evidence is up to you.
 
 Specifically:
 - **A fingerprint match** shows that two files shared a sequence of winnowed token k-grams under a specific configuration. Common idioms, shared dependencies, independent implementations of the same specification, or historical copies can also match, and a match does not show which copy came first.
 - **A signature or commitment** authenticates exact bytes under a key or shows that a disclosed catalogue matches a prior hash; anyone can sign or commit files they hold.
 - **A decoded image watermark** shows that bits matching an expected payload were embedded in a candidate image. Because reviewed post-hoc encoders and decoders are public and unkeyed, anyone can copy a mark onto an unrelated image without the key ([research/drafts/image-mark-use-case.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/image-mark-use-case.md)).
 
-## Is Traceweave ready for production use?
+## What is the current status?
 
-Not yet. Traceweave is an experimental design draft (`0.1.0-draft.1`) ([README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/README.md)). Currently 11 of 47 core roadmap gates and 3 of 41 later-profile gates are met ([ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)). The M3 held-out evaluation has not been run, signing verification (`M4.3`–`M4.6`) is unfinished, and the two independent reference implementations (in Rust and Go) have not been published yet.
+Traceweave is an experimental design draft (`0.1.0-draft.1`) ([README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/README.md)). Currently 11 of 47 core roadmap gates and 3 of 41 later-profile gates are met ([ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)). The M3 held-out evaluation has not been run, signing verification (`M4.3`–`M4.6`) is unfinished, and the two independent reference implementations (in Rust and Go) have not been published yet.
 
 ## What is the accuracy or false-alarm rate?
 

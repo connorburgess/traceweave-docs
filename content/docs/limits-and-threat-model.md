@@ -17,7 +17,7 @@ From [spec/threat-model.md](https://github.com/connorburgess/traceweave-spec/blo
 | **Partial extraction into a large host** | Localize byte spans and report directional containment separately from whole-file similarity. |
 | **Rewriting, regeneration, cross-language ports** | Allow abstention (`no-match` / `abstain`). Arbitrary rewriting has no detection assurance. |
 | **Independent same-task implementation** | Include hard negative controls; shared structure or semantics is not ancestry. |
-| **Shared dependencies and permitted historical copies** | Keep origin context separate from technical similarity. |
+| **Shared dependencies and earlier copies** | Origin context is kept separate from technical similarity. |
 | **Transplanted marks and repeated fragments** | Never attribute a whole artifact from a small copied span or a transferred signal. |
 | **Signed false claims** | Authenticate the signer under a trust policy; a valid signature never makes the signed claim true. |
 | **Key or catalogue compromise** | Document loss of privacy and trust; retain prior evidence with compromise context. |
@@ -66,7 +66,7 @@ Across source code, existing prose, and still images, every reviewed or tested e
 
 From [docs/use-cases.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/docs/use-cases.md) and [spec/threat-model.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/threat-model.md):
 
-- **Observation, not copy restriction:** Traceweave records checkable provenance and similarity evidence; it does not restrict copying or alter runtime behavior.
+- **Does not lock content:** Traceweave produces checkable facts about your work; it does not lock content or alter runtime behavior.
 - **No hidden mechanisms:** no planted defects, callbacks, telemetry, network calls at runtime, or behavior changes are part of the design.
-- **Technical records only:** Traceweave reports observable digests, fingerprint matches, and signature checks. Ownership, authorship, permission, and model-training membership are outside what a report determines.
+- **What a report shows:** Traceweave reports observable digests, fingerprint matches, and signature checks. It does not make the call on ownership, authorship, permission, or model-training membership; what you do with a report is up to you.
 - **Unmeasured accuracy:** the M3 evaluation has not been run yet, so no precision, recall, or false-alarm rate is claimed.

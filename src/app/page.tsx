@@ -161,11 +161,13 @@ export default function HomePage() {
             <h3>Out of scope</h3>
             <ul>
               <li>
-                <strong>Origin and permission judgments:</strong> a fingerprint
-                match, a decoded mark, or a valid signature records checkable
-                facts; ownership, authorship, direction of copying, and
-                permission are judgments for people. Common idioms, shared
-                dependencies, and permitted historical copies can also match.
+                <strong>Ownership and permission calls:</strong> Traceweave
+                produces checkable facts about your work — byte digests, shared
+                spans, decoded mark bits, and signature checks. It does not lock
+                content, and it does not make the call on ownership, authorship,
+                direction of copying, or permission. Common idioms, shared
+                dependencies, and earlier copies can also match. What you do
+                with the evidence is up to you.
               </li>
               <li>
                 <strong>Absence of reuse:</strong> <code>no-match</code> means
