@@ -13,6 +13,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { SearchModal } from "./SearchModal";
 
 const SPEC_REPO_URL = "https://github.com/connorburgess/traceweave-spec";
+const PROJECT_HOME_URL = "https://traceweave.org";
 
 interface DocsShellProps {
   children: React.ReactNode;
@@ -104,6 +105,15 @@ export function DocsShell({
             </button>
 
             <ThemeToggle />
+
+            <a
+              href={PROJECT_HOME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="header-btn header-repo-link"
+            >
+              traceweave.org
+            </a>
 
             <a
               href={SPEC_REPO_URL}
@@ -252,6 +262,14 @@ export function DocsShell({
               .
             </span>
             <span className="footer-links">
+              <a
+                href={PROJECT_HOME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                traceweave.org
+              </a>
+              <span aria-hidden="true">·</span>
               <a
                 href={SPEC_REPO_URL}
                 target="_blank"

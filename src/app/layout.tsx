@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://traceweave.org"),
+  metadataBase: new URL("https://docs.traceweave.org"),
   title: {
     default: "Traceweave — Experimental Content-Recognition Specification",
     template: "%s — Traceweave",
