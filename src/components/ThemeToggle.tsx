@@ -2,26 +2,21 @@
 
 import { useEffect, useState } from "react";
 
-type ThemeMode = "system" | "light" | "dark";
+type ThemeMode = "light" | "dark";
 
 const STORAGE_KEY = "traceweave-theme";
 
 function applyTheme(mode: ThemeMode) {
-  const root = document.documentElement;
-  if (mode === "system") {
-    root.removeAttribute("data-theme");
-  } else {
-    root.setAttribute("data-theme", mode);
-  }
+  document.documentElement.setAttribute("data-theme", mode);
 }
 
 export function ThemeToggle() {
-  const [mode, setMode] = useState<ThemeMode>("system");
+  const [mode, setMode] = useState<ThemeMode>("light");
 
   useEffect(() => {
     try {
-      const saved = window.localStorage.getItem(STORAGE_KEY) as ThemeMode | null;
-      if (saved === "light" || saved === "dark" || saved === "system") {
+      const saved = window.localStorage.getItem(STORAGE_KEY);
+      if (saved === "dark" || saved === "light") {
         // eslint-disable-next-line react-hooks/set-state-in-effect
         setMode(saved);
         applyTheme(saved);
@@ -31,39 +26,32 @@ export function ThemeToggle() {
     }
   }, []);
 
-  function cycleTheme() {
-    const next: ThemeMode =
-      mode === "system" ? "light" : mode === "light" ? "dark" : "system";
+  function toggleTheme() {
+    const next: ThemeMode = mode === "dark" ? "light" : "dark";
     setMode(next);
     applyTheme(next);
     try {
-      if (next === "system") {
-        window.localStorage.removeItem(STORAGE_KEY);
-      } else {
-        window.localStorage.setItem(STORAGE_KEY, next);
-      }
+      window.localStorage.setItem(STORAGE_KEY, next);
     } catch {
       // Ignore storage write errors.
     }
   }
 
-  const label =
-    mode === "system"
-      ? "Theme: System"
-      : mode === "light"
-        ? "Theme: Light"
-        : "Theme: Dark";
+  const isDark = mode === "dark";
 
   return (
     <button
       type="button"
-      onClick={cycleTheme}
+      onClick={toggleTheme}
       className="header-btn"
-      aria-label={`${label}. Activate to switch theme.`}
-      title={label}
+      aria-label="Dark theme"
+      aria-pressed={isDark}
+      title={isDark ? "Switch to light theme" : "Switch to dark theme"}
     >
       <span className="theme-dot" aria-hidden="true" data-mode={mode} />
-      <span className="header-btn-text">{mode}</span>
+      <span className="header-btn-text" aria-hidden="true">
+        {isDark ? "Dark" : "Light"}
+      </span>
     </button>
   );
 }

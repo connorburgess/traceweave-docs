@@ -33,7 +33,7 @@ SPEC_CHECKOUT_DIR=/path/to/traceweave-spec npm run check:content
 - Static Next.js App Router site with TypeScript and build-time Markdown rendering.
 - Zero external runtime scripts, external fonts, cookies, analytics, databases, API routes, or environment secrets.
 - Client-side search over a build-time static index.
-- Light and dark themes following system preference, with an explicit toggle.
+- Light and dark themes (light default, with a two-state toggle saved in `localStorage`).
 
 ## Licensing
 

@@ -363,6 +363,17 @@ function main() {
     }
   }
 
+  // 5. Ensure prefers-color-scheme is never read in source or styles
+  const styleFiles = walkFiles(srcDir, [".css", ".ts", ".tsx"]);
+  for (const filePath of styleFiles) {
+    const raw = fs.readFileSync(filePath, "utf8");
+    if (raw.includes("prefers-color-scheme")) {
+      errors.push(
+        `${rel(filePath)}: must not read prefers-color-scheme (light is always the default)`
+      );
+    }
+  }
+
   if (errors.length > 0) {
     console.error(`Content check failed with ${errors.length} error(s):`);
     for (const err of errors) {
