@@ -6,6 +6,7 @@ node_modules/
 out/
 build/
 next-env.d.ts
+*.tsbuildinfo
 
 # Logs and local files
 *.log
