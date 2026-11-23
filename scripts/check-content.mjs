@@ -57,8 +57,7 @@ const REQUIRED_TEXT_CHECKS = [
     file: "src/components/SeatbeltLabsLink.tsx",
     phrases: [
       'href="https://seatbeltlabs.com"',
-      "width={28}",
-      "height={28}",
+      'rel="noopener noreferrer"',
       "SEATBELT LABS",
     ],
   },
@@ -73,8 +72,9 @@ const REQUIRED_TEXT_CHECKS = [
   {
     file: "src/app/globals.css",
     phrases: [
-      ':root[data-theme="dark"] .brand-mark-frame',
-      "letter-spacing: 0.08em;",
+      ".brand-wordmark-link",
+      "font-weight: 800;",
+      "letter-spacing: 0.075em;",
     ],
   },
 ];
