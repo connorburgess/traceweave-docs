@@ -29,7 +29,7 @@ export function WinnowingDiagram() {
             y="10"
             width="410"
             height="200"
-            rx="8"
+            rx="2"
             className="svg-zone-private"
           />
           <text x="26" y="34" className="svg-zone-label">
@@ -60,7 +60,7 @@ export function WinnowingDiagram() {
                   y="66"
                   width="56"
                   height="38"
-                  rx="5"
+                  rx="2"
                   className={
                     cell.selected ? "svg-box svg-box-accent" : "svg-box"
                   }
@@ -97,7 +97,7 @@ export function WinnowingDiagram() {
             y="10"
             width="410"
             height="200"
-            rx="8"
+            rx="2"
             className="svg-zone-private"
           />
           <text x="456" y="34" className="svg-zone-label">
@@ -112,7 +112,7 @@ export function WinnowingDiagram() {
             y="74"
             width="130"
             height="24"
-            rx="4"
+            rx="2"
             className="svg-box svg-box-accent"
           />
           <text x="521" y="90" textAnchor="middle" className="svg-box-sub-bold">
@@ -122,13 +122,13 @@ export function WinnowingDiagram() {
           <text x="456" y="124" className="svg-box-sub-bold">
             Candidate host.go (39 distinct hashes)
           </text>
-          <rect x="456" y="134" width="360" height="24" rx="4" className="svg-box" />
+          <rect x="456" y="134" width="360" height="24" rx="2" className="svg-box" />
           <rect
             x="590"
             y="134"
             width="130"
             height="24"
-            rx="4"
+            rx="2"
             className="svg-box svg-box-accent"
           />
           <text x="655" y="150" textAnchor="middle" className="svg-box-sub-bold">

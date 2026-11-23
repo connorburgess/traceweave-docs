@@ -34,6 +34,8 @@ const REQUIRED_TEXT_CHECKS = [
     phrases: [
       EXPECTED_OPENING,
       "openGraph:",
+      'import "@fontsource/ibm-plex-sans/400.css";',
+      'import "@fontsource/ibm-plex-mono/400.css";',
       'import "@fontsource/archivo/800.css";',
     ],
   },
@@ -76,10 +78,18 @@ const REQUIRED_TEXT_CHECKS = [
   {
     file: "src/app/globals.css",
     phrases: [
+      "--tw-bg: #F9F9F7;",
+      "--tw-accent: #096B56;",
+      "--tw-bg: #0D1014;",
+      "--tw-accent: #34E5BC;",
       ".brand-wordmark-link",
       "font-weight: 800;",
       "letter-spacing: 0.075em;",
     ],
+  },
+  {
+    file: "src/components/TraceweaveLockup.tsx",
+    phrases: ["Traceweave", "currentColor", "var(--tw-accent)"],
   },
 ];
 

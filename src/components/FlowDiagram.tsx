@@ -43,7 +43,7 @@ export function FlowDiagram() {
             y="14"
             width="584"
             height="148"
-            rx="8"
+            rx="2"
             className="svg-zone-private"
           />
           <text x="28" y="34" className="svg-zone-label">
@@ -51,7 +51,7 @@ export function FlowDiagram() {
           </text>
 
           {/* Box 1: Source */}
-          <rect x="28" y="52" width="114" height="72" rx="6" className="svg-box" />
+          <rect x="28" y="52" width="114" height="72" rx="2" className="svg-box" />
           <text x="85" y="79" textAnchor="middle" className="svg-box-title">
             1. Source
           </text>
@@ -72,7 +72,7 @@ export function FlowDiagram() {
           />
 
           {/* Box 2: Tokens */}
-          <rect x="172" y="52" width="120" height="72" rx="6" className="svg-box" />
+          <rect x="172" y="52" width="120" height="72" rx="2" className="svg-box" />
           <text x="232" y="79" textAnchor="middle" className="svg-box-title">
             2. Tokens
           </text>
@@ -93,7 +93,7 @@ export function FlowDiagram() {
           />
 
           {/* Box 3: Fingerprints */}
-          <rect x="322" y="52" width="124" height="72" rx="6" className="svg-box" />
+          <rect x="322" y="52" width="124" height="72" rx="2" className="svg-box" />
           <text x="384" y="79" textAnchor="middle" className="svg-box-title">
             3. Fingerprints
           </text>
@@ -119,7 +119,7 @@ export function FlowDiagram() {
             y="52"
             width="108"
             height="72"
-            rx="6"
+            rx="2"
             className="svg-box svg-box-accent"
           />
           <text x="530" y="76" textAnchor="middle" className="svg-box-title">
@@ -143,7 +143,7 @@ export function FlowDiagram() {
           />
 
           {/* Box 5: Comparison */}
-          <rect x="630" y="52" width="124" height="72" rx="6" className="svg-box" />
+          <rect x="630" y="52" width="124" height="72" rx="2" className="svg-box" />
           <text x="692" y="79" textAnchor="middle" className="svg-box-title">
             5. Comparison
           </text>
@@ -160,7 +160,7 @@ export function FlowDiagram() {
             y="182"
             width="160"
             height="58"
-            rx="6"
+            rx="2"
             className="svg-box svg-box-muted"
           />
           <text x="692" y="206" textAnchor="middle" className="svg-box-sub-bold">
@@ -196,7 +196,7 @@ export function FlowDiagram() {
             y="44"
             width="122"
             height="100"
-            rx="6"
+            rx="2"
             className="svg-box svg-box-accent"
           />
           <text x="845" y="71" textAnchor="middle" className="svg-box-title">
@@ -214,11 +214,14 @@ export function FlowDiagram() {
           </text>
 
           {/* Note at bottom left */}
-          <text x="28" y="196" className="svg-footnote">
-            Note: Unkeyed hashes in a catalogue still allow guessing or confirming known code; keep catalogues private.
+          <text x="28" y="192" className="svg-footnote">
+            Note: Unkeyed hashes still allow guessing or confirming known code;
           </text>
-          <text x="28" y="216" className="svg-footnote">
-            Comparison reads catalogues only (no source text). Signatures, signer trust, timestamps, and origin context stay separate.
+          <text x="28" y="209" className="svg-footnote">
+            keep catalogues private. Comparison reads catalogues only (no source text).
+          </text>
+          <text x="28" y="226" className="svg-footnote">
+            Signatures, signer trust, timestamps, and origin context stay separate.
           </text>
         </svg>
       </div>

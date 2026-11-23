@@ -39,6 +39,8 @@ SPEC_CHECKOUT_DIR=/path/to/traceweave-spec npm run check:content
 
 - `next` (16.4.6), `react` / `react-dom` (19.3.1), `gray-matter` (4.0.3), `marked` (18.2.1): MIT
 - `highlight.js` (11.12.0): BSD-3-Clause
+- `@fontsource/ibm-plex-sans` (5.3.0): OFL-1.1 (IBM Plex Sans weights 400, 500, 600, 700, self-hosted from this site's static assets)
+- `@fontsource/ibm-plex-mono` (5.3.0): OFL-1.1 (IBM Plex Mono weights 400, 500, self-hosted from this site's static assets)
 - `@fontsource/archivo` (5.3.0): OFL-1.1 (Archivo weight 800 only, self-hosted from this site's static assets for the Seatbelt Labs wordmark)
 
 ## Licensing

@@ -12,6 +12,7 @@ import type { SearchEntry, TocHeading } from "@/lib/docs";
 import { ThemeToggle } from "./ThemeToggle";
 import { SearchModal } from "./SearchModal";
 import { SeatbeltLabsLink } from "./SeatbeltLabsLink";
+import { TraceweaveLockup } from "./TraceweaveLockup";
 
 const SPEC_REPO_URL = "https://github.com/connorburgess/traceweave-spec";
 const PROJECT_HOME_URL = "https://traceweave.org";
@@ -83,8 +84,8 @@ export function DocsShell({
               <span>Menu</span>
             </button>
 
-            <Link href="/" className="wordmark" aria-label="Traceweave home">
-              traceweave
+            <Link href="/" className="wordmark" aria-label="Traceweave">
+              <TraceweaveLockup />
             </Link>
           </div>
 
