@@ -252,7 +252,7 @@ export function DocsShell({
               >
                 <Image
                   src="/brand/seatbelt-labs-mark.svg"
-                  alt="Seatbelt Labs"
+                  alt=""
                   width={20}
                   height={20}
                   className="brand-mark"
