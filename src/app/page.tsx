@@ -61,8 +61,9 @@ export default function HomePage() {
         </p>
         <p className="home-status-sources">
           See the{" "}
-          <Link href="/docs/roadmap">roadmap and gate counts</Link> (11 of 47
-          core gates met; 3 of 41 later-profile gates met). Sources:{" "}
+          <Link href="/docs/roadmap">roadmap and gate counts</Link> (14 of 47
+          core gates met; 8 of 55 later-profile gates met; Python{" "}
+          <code>py-tokens</code> draft-1 frozen for stage 1). Sources:{" "}
           <a
             href={`${SPEC_BASE}/README.md`}
             target="_blank"
@@ -219,13 +220,15 @@ export default function HomePage() {
               re-embed it onto an unrelated image without the key, and each
               scheme has cheap removals such as ReMark or regeneration (
               <Link href="/docs/research/image-mark-study">
-                e-img-m-2 protocol
+                e-img-m-2 results
               </Link>
               ,{" "}
               <Link href="/docs/research/lane-10-image-profile">Lane 10</Link>).
-              In the published specification checkout, <code>e-img-m-2</code> is
-              frozen and reviewed to start, with dry-test smoke runs only and no
-              committed full run yet.
+              In the measured <code>e-img-m-2</code> run (100 synthetic images
+              per scheme), both TrustMark-Q and PixelSeal matched 100/100 clean
+              images, but keyless re-embed succeeded 100/100 for both (and
+              residual transplant 82/100 and 90/100; ReMark left 1/100 for
+              TrustMark-Q).
             </li>
             <li>
               <strong>Core matching builds on established prior art:</strong>{" "}
@@ -260,8 +263,8 @@ export default function HomePage() {
           <Link href="/docs/profiles" className="nav-card">
             <span className="nav-card-title">Profiles</span>
             <span className="nav-card-desc">
-              First code profiles (Go and Rust), TypeScript and plain text stage
-              1, still-image studies, and planned media.
+              First code profiles (Go and Rust), TypeScript, Python, and plain
+              text stage 1, still-image studies, and planned media.
             </span>
           </Link>
           <Link href="/docs/research" className="nav-card">

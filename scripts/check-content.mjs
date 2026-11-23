@@ -27,7 +27,12 @@ const EXPECTED_STATUS =
 const REQUIRED_TEXT_CHECKS = [
   {
     file: "src/app/page.tsx",
-    phrases: [EXPECTED_OPENING, EXPECTED_FOLLOW, EXPECTED_STATUS],
+    phrases: [
+      EXPECTED_OPENING,
+      EXPECTED_FOLLOW,
+      EXPECTED_STATUS,
+      "14 of 47 core gates met; 8 of 55 later-profile gates met",
+    ],
   },
   {
     file: "src/app/layout.tsx",
@@ -54,6 +59,26 @@ const REQUIRED_TEXT_CHECKS = [
   {
     file: "content/docs/how-it-works.md",
     phrases: ["deterministic, byte-identical reports"],
+  },
+  {
+    file: "content/docs/profiles.md",
+    phrases: ["py-tokens", "107 vectors", "1,847/1,847"],
+  },
+  {
+    file: "content/docs/roadmap.md",
+    phrases: ["14", "33", "55", "47", "m3-eval-draft-9", "py-tokens"],
+  },
+  {
+    file: "content/docs/evidence-and-provenance.md",
+    phrases: ["traceweave-registration-draft-2", "OpenTimestamps"],
+  },
+  {
+    file: "content/docs/research/evaluation-protocol.md",
+    phrases: ["m3-eval-draft-9"],
+  },
+  {
+    file: "content/docs/research/image-mark-study.md",
+    phrases: ["6d87d2cc", "100 / 100 (pass)", "reembed"],
   },
   {
     file: "README.md",

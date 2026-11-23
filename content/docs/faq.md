@@ -15,11 +15,11 @@ Specifically:
 
 ## What is the current status?
 
-Traceweave is an experimental design draft (`0.1.0-draft.1`) ([README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/README.md)). Currently 11 of 47 core roadmap gates and 3 of 41 later-profile gates are met ([ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)). The M3 held-out evaluation has not been run, signing verification (`M4.3`–`M4.6`) is unfinished, and the two independent reference implementations (in Rust and Go) have not been published yet.
+Traceweave is an experimental design draft (`0.1.0-draft.1`) ([README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/README.md)). Currently 14 of 47 core roadmap gates and 8 of 55 later-profile gates are met ([ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)). Go and Rust are the first two working code profiles; TypeScript (`ts-tokens`), Python (`py-tokens`), and plain text (`text-plain`) are specified and frozen for stage 1; still-image fingerprint (`e-img-f-2`) and mark (`e-img-m-2`) synthetic runs are measured. The M3 held-out evaluation (`m3-eval-draft-9`) has not been run, signing verification (`M4.3`–`M4.6`) and registration records (`draft-2`) are unfinished, and the two independent reference implementations (in Rust and Go) remain in a private repository.
 
 ## What is the accuracy or false-alarm rate?
 
-Unmeasured so far. The M3 evaluation protocol (`m3-eval-draft-5`) has not been executed and no evaluation corpus has been acquired yet ([research/drafts/evaluation-protocol.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/evaluation-protocol.md)). Shipped parameters such as `k = 5, w = 4` (code) and `k = 8, w = 8` (prose) are experimental values chosen for hand-checkable test vectors, not calibrated thresholds.
+Unmeasured so far. The M3 evaluation protocol (`m3-eval-draft-9`) has not been executed, no evaluation corpus has been acquired yet, and the evaluation harness is under review ([research/drafts/evaluation-protocol.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/evaluation-protocol.md)). Shipped parameters such as `k = 5, w = 4` (code) and `k = 8, w = 8` (prose) are experimental values chosen for hand-checkable test vectors, not calibrated thresholds.
 
 The recorded `M3.0` false-alarm budget (**1 in 20** per unordered repository search, or ≤ 6 alarms in 132 held-out searches) is an operational acceptance target to test against, not a demonstrated error rate.
 
@@ -34,7 +34,7 @@ Embedded marking remains an open research track (`M2E.0`–`M2E.7`) — any cand
 
 ## What about image watermarks?
 
-Post-hoc still-image watermarks (TrustMark-Q and PixelSeal) are under study under frozen protocol `e-img-m-2` ([Image mark study](/docs/research/image-mark-study)), following the Lane 12 licence audit. Even where an image mark survives ordinary edits like JPEG compression or resizing, it acts as a **finding aid** rather than evidence of origin: each scheme has cheap removals (such as TrustMark's own ReMark remover or regeneration), blind BCH decoding yields 5.9–15.3% false positives on unmarked images in external benchmark `X1`, and public unkeyed encoders allow anyone to copy a mark onto an unrelated image without the key.
+Post-hoc still-image watermarks (TrustMark-Q and PixelSeal) were measured on 100 synthetic images per scheme under `e-img-m-2` ([Image mark study](/docs/research/image-mark-study)), closing gates `IMG.0`–`IMG.4`. Both matched 100/100 clean images and survived most edits, but keyless `reembed` transferred each mark onto an unrelated image **100/100** times for both schemes (and residual transplant succeeded 82/100 and 90/100; ReMark left 1/100 for TrustMark-Q). Because reviewed encoders and decoders are public and unkeyed, an image watermark acts as a **finding aid** rather than evidence of origin.
 
 ## Does Traceweave upload my source code or catalogues?
 

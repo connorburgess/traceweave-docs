@@ -67,10 +67,20 @@ PAE(type, body) = "DSSEv1" + SP + LEN(type) + SP + type + SP + LEN(body) + SP + 
 
 Until all M4 engineering gates close, any experimental detector release must be labelled **unsigned detector-only** (roadmap gate `M5.4`). Sigstore bundles and RFC 3161 timestamps remain optional future integrations, never mandatory public logs ([spec/attestations.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/attestations.md)).
 
+## Registration record design (`draft-2`) and Lane 13
+
+Following the `e-img-m-2` finding that image watermarks act as a finding aid rather than evidence of origin, [research/drafts/registration-record.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/registration-record.md) (`draft-2`, resolving non-author review [registration-record-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/registration-record-review.md); confirmation review pending) and [research/lanes/13-timestamp-evidence-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/lanes/13-timestamp-evidence-review.md) specify how a signed, timestamped registration record can establish an upper time bound without disclosing private content.
+
+- **Structure:** a signed in-toto Statement v1 (`traceweave-registration-draft-2`) wrapped in a DSSE envelope with a fresh 32-byte OS random nonce, exact subject digests (1–64 subjects), a salted possession digest (`sha256-salted-possession-v1`), an optional salted catalogue commitment (`sha256-salted-catalogue-v1`), and separate time evidences countersigning **one** DSSE signature under **one** trust anchor.
+- **Recommended first time sources (Lane 13):** **two unrelated RFC 3161 time-stamping authorities plus OpenTimestamps (Bitcoin)** — three independent trust anchors with quorum `q = 2`, so retroactive loss of one TSA (for example via key compromise or revocation without a reasonCode) still leaves quorum.
+- **Separate verification outputs:** a verifier reports digest/possession checks, per-signature validity and signer trust, key events (retire, rotate, or compromise, passed as a verification input), each time evidence, and per-signature earliest and quorum `notAfter` bounds. No combined verdict is emitted.
+- **Agent interoperability (planned `SK.3`–`SK.5`):** `draft-2` includes local-first creation-time registration and verification skills over A2A 1.0 and MCP 2026-07-28, keeping content and fingerprints local so only digests cross the wire.
+- **Status and scope:** research draft only — not normative; all fixture time evidences and trust anchors are labelled placeholders; nothing has been submitted to any TSA, calendar, or transparency log; implementation awaits an owner decision on contacting external time-stamping services. A registration shows exact bytes existed under a signing key no later than time `T` — first to register is not first to create.
+
 ## C2PA 2.5 mapping status
 
 > [!NOTE]
-> **Status:** The mapping in [research/drafts/c2pa-mapping.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/c2pa-mapping.md) is an unreviewed research draft, and no C2PA compatibility is claimed. No C2PA tool (such as `c2pa-rs`) has been installed, built, or run, and no fixture has been serialized to CBOR or JUMBF or signed. Gates `C2PA.1`–`C2PA.3` remain open.
+> **Status:** The mapping in [research/drafts/c2pa-mapping.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/c2pa-mapping.md) is an unreviewed research draft (updated to use the owned `org.traceweave` namespace following registration of `traceweave.org` on 2026-11-23), and no C2PA compatibility is claimed. No C2PA tool (such as `c2pa-rs`) has been installed, built, or run, and no fixture has been serialized to CBOR or JUMBF or signed. Gates `C2PA.1`–`C2PA.3` remain open.
 
 The draft maps Traceweave records against C2PA Technical Specification 2.5 and the Soft Binding API 2.5, with 6 illustrative JSON fixtures and 18 negative fixtures checked by a local script ([research/drafts/c2pa-fixtures/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/c2pa-fixtures/README.md)). Key findings:
 

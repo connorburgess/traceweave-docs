@@ -1,13 +1,13 @@
 ---
 title: "Experiment: Image embedded-mark study (e-img-m-2) & Lane 12 licences"
-description: Licence audit (Lane 12), frozen expected-payload protocol e-img-m-2 for TrustMark-Q, PixelSeal, and dwtDct, non-author review confirmation, and why an embedded image mark is a finding aid and not evidence of origin.
+description: Licence audit (Lane 12), frozen expected-payload protocol e-img-m-2, and measured synthetic results for TrustMark-Q, PixelSeal, and dwtDct closing gates IMG.0–IMG.4.
 section: Research & experiments
-status: Frozen & reviewed to run in published checkout (no measured full run committed yet)
+status: Measured on synthetic images (gates IMG.0–IMG.4 met; IMG.5 open; no natural-image rate claimed)
 ---
 
-Study `e-img-m-2` specifies an expected-payload evaluation of post-hoc still-image watermarks (TrustMark-Q, PixelSeal, and `dwtDct` as a negative control) after a pre-download licence and digest audit in Lane 12 ([research/drafts/image-mark-protocol.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/image-mark-protocol.md), [research/lanes/12-image-mark-licences.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/lanes/12-image-mark-licences.md)).
+Study `e-img-m-2` evaluates post-hoc still-image watermarks (TrustMark-Q, PixelSeal, and `dwtDct` as a negative control) under an expected-payload protocol after a pre-download licence and digest audit in Lane 12 ([research/drafts/image-mark-protocol.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/image-mark-protocol.md), [research/lanes/12-image-mark-licences.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/lanes/12-image-mark-licences.md), [RESULTS.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/experiments/image-mark/results/e-img-m-2/RESULTS.md)).
 
-**Status and scope in the published checkout (`roadmap-v2`):** protocol `e-img-m-2` is frozen and cleared by non-author review to start ([research/reviews/image-mark-protocol-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/image-mark-protocol-review.md)), with 3-image dry-test smoke runs recorded and no measured full run committed yet in [research/experiments/image-mark/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/experiments/image-mark/README.md). Because TrustMark-Q and PixelSeal use public, unkeyed encoders and decoders, anyone can decode a marked image's bits and re-embed them into an unrelated image without the key; an accepted detection is a finding aid showing that matching bits were present, not evidence of origin ([research/drafts/image-mark-use-case.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/image-mark-use-case.md)).
+**Measured outcome and scope (`roadmap-v2`, commit `65981d7`):** two identical full runs executed offline under `sandbox-exec` deny-network on 100 synthetic marked images and 100 synthetic hosts per scheme (7,500 queries total, `resultsSha256`: `6d87d2cc...70bb`), independently rechecked with **0 mismatches in 7,500 queries** ([research/reviews/image-mark-protocol-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/image-mark-protocol-review.md#results-recheck-e-img-m-2)). Both TrustMark-Q and PixelSeal matched **100/100** clean images and met P1–P4, closing gates `IMG.0`–`IMG.4`. However, keyless re-embed transferred the mark onto unrelated images **100/100** times for both learned schemes (and residual transplant succeeded **82/100** and **90/100**), confirming that an image watermark acts as a finding aid rather than evidence of origin ([ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md), [research/drafts/image-mark-use-case.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/image-mark-use-case.md)). All counts are on synthetic images only and say nothing about natural photographs.
 
 ## Lane 12: Pre-download licence audit
 
@@ -22,9 +22,7 @@ Before any model checkpoint was downloaded, [research/lanes/12-image-mark-licenc
 
 ## Frozen protocol `e-img-m-2`
 
-Protocol `e-img-m-2` (self-excluding digest `cba3667307941766f19b2ff9141e89c154b1f9b53a01e11391135ffe8ab64110`) replaced `e-img-m-1`, which was retired unrun after the non-author review ([research/reviews/image-mark-protocol-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/image-mark-protocol-review.md)) caught two blocking issues:
-
-1. **B1 — TrustMark bit independence:** TrustMark's 100 transmitted bits consist of 61 data bits, 35 linear BCH parity bits, and 4 fixed version bits (`0001`). Testing 74 of 100 transmitted bits violates the fair-coin independence assumption (effective tail `4.02 × 10⁻⁶`, nearly 5× the target `10⁻⁶`). `e-img-m-2` therefore tests **only direct HMAC output bits**:
+Protocol `e-img-m-2` (frozen commit `d3af1ee`, self-excluding digest `cba3667307941766f19b2ff9141e89c154b1f9b53a01e11391135ffe8ab64110`) replaced `e-img-m-1` after non-author review ([research/reviews/image-mark-protocol-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/image-mark-protocol-review.md)) caught TrustMark's non-independent BCH parity/version bits (B1) and required explicit `reembed` keyless-forgery testing and honest labelling of P2–P4 as implementation checks (B2):
 
 | Scheme | Tested bits `n` | Threshold `k` | Analytic per-comparison bound `P(Bin(n, ½) ≥ k)` | Blind decode policy |
 | --- | --- | --- | --- | --- |
@@ -32,23 +30,54 @@ Protocol `e-img-m-2` (self-excluding digest `cba3667307941766f19b2ff9141e89c154b
 | **PixelSeal** (`ps`) | **256** (`preds[0, 1:]`, detection channel excluded) | **167** | `6.22 × 10⁻⁷` | None |
 | **`dwtDct`** (`dw`, control) | **32** | **30** | `1.23 × 10⁻⁷` | None |
 
-2. **B2 — Honest framing of checks and keyless forgery:** zero accepts on unmarked, wrong-key, and wrong-entry queries (`P2`–`P4`, 39,900 comparisons per scheme) are explicitly labelled **implementation checks** (nearly certain by construction with HMAC payloads, not a measured false-accept rate), and `e-img-m-2` adds condition 20 (**`reembed` — keyless forgery**), decoding a marked image with the public decoder and re-embedding its bits into an unrelated host with the public encoder using no key.
+## Validity checks (W1–W6) and pass lines (P1–P4)
 
-### Planned conditions (100 synthetic entries + 100 hosts = 2,500 queries per scheme)
+Executed on 2026-11-23 on macOS 26.4 arm64, CPython 3.14.6, torch 2.11.0 CPU (Run 1: `4,295.2 s` / `3,425.0 MiB` peak RSS; Run 2: `5,996.4 s` / `3,305.7 MiB`, both under the `14,400 s` abort limit; cross-host equality not tested; [RESULTS.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/experiments/image-mark/results/e-img-m-2/RESULTS.md)):
 
-From [research/drafts/image-mark-protocol.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/image-mark-protocol.md) §7:
-- **Clean + 12 edits** imported byte-for-byte from `e-img-f-2` (`jpeg90`, `jpeg75`, `jpeg50`, `jpeg30`, `resize50`, `resize25`, `crop90`, `crop75`, `crop50`, `flip`, `png`, `screenshot`)
-- **5 removal attempts:** TrustMark's `ReMark` remover, model-free `regen` (downscale + blur + JPEG 50 + upscale), `jpeg10`, `noisejpeg` (Gaussian σ=8 + JPEG 75), `rotate5` (5° counter-clockwise)
-- **3 forgery / overwrite attacks:** literal residual `transplant` (`H + M − C`), **keyless `reembed`** (decode `M` with public decoder and embed into `H` with public encoder), and `overwrite` (re-mark `M` under key B, checked against both keys A and B)
-- **Controls:** `wrongkey` (key B), `cover` (unmarked original), `host` (unmarked host), plus a 38.0 dB PSNR quality floor.
+- **Validity checks W1–W6:** all **pass** (W1: 6/6 weights, 84/84 sources, 49 pinned packages, 0 deviations, 3/3 goldens; W2: `networkProbe.denied` true with `EPERM` in both runs; W3: `entries.jsonl`, `queries.jsonl`, and `resultsSha256` `6d87d2cc...70bb` byte-identical across runs 1 and 2; W4: 0 record-validation errors; W5: 100/100 payload round-trips per scheme; W6: `codeIdentity.ok` true at frozen commit `d3af1ee`).
+- **Pass lines (candidates only; P2–P4 are implementation checks expected to be 0 by construction with HMAC payloads, not a measured natural-image false-accept rate):**
 
-## Dry-test smoke observations (not measured results)
+| Line | `tm` (TrustMark-Q) | `ps` (PixelSeal) |
+| --- | --- | --- |
+| **P1:** clean marked images matched (`≥ 95/100`) | **100 / 100 (pass)** | **100 / 100 (pass)** |
+| **P2 (implementation check):** unmarked inputs accepted (`0` required) | `0 / 20,000` (pass) | `0 / 20,000` (pass) |
+| **P3 (implementation check):** wrong-key accepts (`0` required) | `0 / 10,000` (pass) | `0 / 10,000` (pass) |
+| **P4 (implementation check):** wrong-entry accepts (`0` required) | `0 / 9,900` (pass) | `0 / 9,900` (pass) |
 
-Before freezing `e-img-m-2`, the harness ran dry tests on 3 smoke images per scheme (seeds `3,000,000`–`3,000,002`; disjoint from the `2,000,000`–`2,000,201` experiment range), verified offline under `sandbox-exec` deny-network and independently reproduced by the non-author reviewer ([research/drafts/image-mark-protocol.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/image-mark-protocol.md) §11, [research/reviews/image-mark-protocol-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/image-mark-protocol-review.md)):
+## Measured per-condition counts (out of 100 entries per scheme)
 
-- 22/22 unit tests passed; 3 smoke runs (including offline) were byte-identical (`resultsSha256`: `2d78db49...6ecd`).
-- On the 3 smoke images: both TrustMark-Q and PixelSeal matched 3/3 clean images with 0 unmarked, wrong-key, or wrong-entry accepts.
-- **Keyless `reembed` (dry test, n = 3):** accepted as the donor's entry on **3 of 3** smoke images for TrustMark-Q (61/61 bits via BCH) and **3 of 3** for PixelSeal (256/256 bits), and 1 of 3 for `dwtDct`. Residual `transplant` in the `e-img-m-1` smoke review also accepted on 3 of 3 for both candidates.
-- The `dwtDct` negative control had PSNR 29.9–34.2 dB (below the 38.0 dB floor) and failed clean round-trip on 2 of 3 smoke images.
+Each cell is the count out of 100 entries accepted for its own entry (`correctMatch`, or attacker success `acceptedAsTrue` for `transplant`, `reembed`, and `overwrite`). Wrong-entry accepts were **0** across every condition and scheme, with 0 abstentions and 0 ambiguous results ([RESULTS.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/experiments/image-mark/results/e-img-m-2/RESULTS.md)):
 
-These dry-test counts come from 3 synthetic images and say nothing about rates. Protocol §6 states expectations `E1`–`E5` (that `reembed`, `transplant`, `ReMark`, and `overwrite` will succeed at high rates as expected limits, while `P1` ≥ 95/100 and `P2`–`P4` = 0 check clean recovery and implementation correctness), awaiting the full measured run on the 100-entry experiment range.
+| Condition | `tm` (TrustMark-Q) | `ps` (PixelSeal) | `dw` (`dwtDct` control) |
+| --- | --- | --- | --- |
+| `clean` | 100 | 100 | 42 |
+| `jpeg90` / `jpeg75` / `jpeg50` / `jpeg30` | 100 / 100 / 100 / 100 | 100 / 100 / 100 / 98 | 1 / 0 / 0 / 0 |
+| `resize50` / `resize25` | 100 / 100 | 100 / 100 | 51 / 3 |
+| `crop90` / `crop75` / `crop50` | 100 / 100 / **14** | 100 / 100 / 100 | 0 / 0 / 0 |
+| `flip` / `png` / `screenshot` | 100 / 100 / **51** | 100 / 100 / 100 | 0 / 42 / 0 |
+| `remark` (TrustMark ReMark remover) | **1** | 99 | 42 |
+| `regen` (model-free regeneration chain) | 100 | **74** | 0 |
+| `jpeg10` | **48** | **18** | 0 |
+| `noisejpeg` (Gaussian σ=8 + JPEG 75) | 100 | 100 | 0 |
+| `rotate5` (5° counter-clockwise) | **25** | 100 | 0 |
+| `transplant` (residual copy `H + M − C`, donor entry accepted) | **82** | **90** | 1 |
+| `reembed` (keyless public decode + re-embed, donor entry accepted) | **100** | **100** | 17 |
+| `overwrite` (original key-A payload still accepted / key-B accepted) | **0** / 100 | **0** / 100 | 0 / 47 |
+| `wrongkey` (clean decodes checked against all 100 key-B payloads) | 0 | 0 | 0 |
+
+### Marked-image quality (PSNR vs cover, dB; floor 38.0)
+
+| Scheme | Min | 25th pct | Median | 75th pct | Max | Below 38.0 dB floor |
+| --- | --- | --- | --- | --- | --- | --- |
+| `tm` (TrustMark-Q) | 41.95 | 43.99 | 44.96 | 45.84 | 48.01 | **0 / 100** |
+| `ps` (PixelSeal) | 49.96 | 51.01 | 51.55 | 52.18 | 55.94 | **0 / 100** |
+| `dw` (`dwtDct` control) | 30.45 | 33.43 | 34.33 | 35.58 | 39.75 | **96 / 100** |
+
+Report-only TrustMark blind BCH decoding was valid on 100/100 clean images and **6/100** unmarked covers (0/100 hosts), confirming why blind BCH is never used to decide matches.
+
+## What the run establishes — and its limits
+
+- **Synthetic images only:** counts are on 100 procedural synthetic images and 100 synthetic hosts; 0 of 200 unmarked sources bounds the per-source rate below 1.49% (one-sided 95%) for this generator only, and says nothing about photographs.
+- **Removal and forgery counts are lower bounds:** the protocol omits learned forgers (such as WmForger), VAE/diffusion regeneration, collusion/averaging across marked images, optimization against the public decoder, and adaptive attack chains.
+- **Marks are finding aids, not origin evidence:** because keyless `reembed` succeeded 100/100 for both TrustMark-Q and PixelSeal (and plain residual `transplant` succeeded 82/100 and 90/100), a decoded mark shows only that matching payload bits were present. Evidence of prior existence comes from a signed, timestamped registration record ([Evidence & provenance](/docs/evidence-and-provenance), M4).
+- **Gate status:** `IMG.0`–`IMG.4` are **met**; `IMG.5` (where the six extra mark-record fields live relative to the Lane 08 container) remains open ([ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)).
