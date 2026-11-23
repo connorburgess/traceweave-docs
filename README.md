@@ -1,6 +1,6 @@
 # Traceweave documentation site
 
-Public documentation website for [Traceweave](https://github.com/connorburgess/traceweave-spec), an experimental open specification (0.1.0-draft.1) for recognising your own content when it reappears elsewhere and producing evidence that someone else can re-run and check.
+Public documentation website for [Traceweave](https://github.com/connorburgess/traceweave-spec). Traceweave is an open specification for recognising your own work when it turns up somewhere else, and for producing evidence of the match that anyone can re-run and check.
 
 Status: experimental design draft. Not a standard, not production software.
 

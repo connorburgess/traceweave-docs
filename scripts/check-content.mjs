@@ -9,9 +9,50 @@ const FORBIDDEN_PHRASES = [
   ["proves", "ownership"].join(" "),
   ["proof of", "ownership"].join(" "),
   ["detects", "plagiarism"].join(" "),
+  ["protect", "your", "work"].join(" "),
   ["guaran", "tee"].join(""),
   ["tamper", "proof"].join("-"),
   ["military", "grade"].join("-"),
+];
+
+const EXPECTED_OPENING =
+  "Traceweave is an open specification for recognising your own work when it turns up somewhere else, and for producing evidence of the match that anyone can re-run and check.";
+
+const EXPECTED_FOLLOW =
+  "It is designed to cover any kind of work: source code, writing, images and audio. One shared evidence format sits underneath, with a profile for each medium. Your content never leaves your machine; only fingerprints are compared.";
+
+const EXPECTED_STATUS =
+  "Where it stands today: source code is working end to end, with Go and Rust as the first two case studies. TypeScript, JavaScript and plain text are specified. Images have been measured in two studies. More languages, audio, and signed, timestamped registration records are planned. It is experimental and not yet evaluated on real-world data.";
+
+const REQUIRED_TEXT_CHECKS = [
+  {
+    file: "src/app/page.tsx",
+    phrases: [EXPECTED_OPENING, EXPECTED_FOLLOW, EXPECTED_STATUS],
+  },
+  {
+    file: "src/app/layout.tsx",
+    phrases: [EXPECTED_OPENING, "openGraph:"],
+  },
+  {
+    file: "src/lib/docs.ts",
+    phrases: [EXPECTED_OPENING, EXPECTED_FOLLOW, EXPECTED_STATUS],
+  },
+  {
+    file: "content/docs/concepts.md",
+    phrases: [EXPECTED_OPENING, EXPECTED_FOLLOW, EXPECTED_STATUS],
+  },
+  {
+    file: "content/docs/governance.md",
+    phrases: ["open, non-commercial, independent"],
+  },
+  {
+    file: "content/docs/how-it-works.md",
+    phrases: ["deterministic, byte-identical reports"],
+  },
+  {
+    file: "README.md",
+    phrases: [EXPECTED_OPENING],
+  },
 ];
 
 const ALLOWED_ENTITY_NAMES = ["Seatbelt Labs"];
@@ -296,6 +337,27 @@ function main() {
       if (!sourcesPageCitedPaths.has(p)) {
         errors.push(
           `content/docs/sources.md: missing cited source file "${p}"`
+        );
+      }
+    }
+  }
+
+  // 4. Verify required intro, status, governance, and how-it-works expectations
+  for (const check of REQUIRED_TEXT_CHECKS) {
+    const fullPath = path.join(ROOT, check.file);
+    if (!fs.existsSync(fullPath)) {
+      errors.push(`${check.file}: required file missing`);
+      continue;
+    }
+    const raw = fs.readFileSync(fullPath, "utf8");
+    const normalized = raw
+      .replace(/<\/?(?:strong|em|code)>/g, "")
+      .replace(/\*\*/g, "")
+      .replace(/\s+/g, " ");
+    for (const phrase of check.phrases) {
+      if (!normalized.includes(phrase)) {
+        errors.push(
+          `${check.file}: missing expected statement "${phrase.slice(0, 80)}..."`
         );
       }
     }

@@ -5,7 +5,7 @@ section: Project
 status: Grounded in research/lanes/11-report-audit.md
 ---
 
-Traceweave's core matching algorithm is **established prior art** (winnowing over token k-grams, plus explicit boilerplate suppression and region merging). What Traceweave adds is a byte-deterministic, offline, dual-implementation specification separating extraction, private catalogues, comparison reports, and cryptographic attestations.
+Traceweave's core matching algorithm for source code is **established prior art** (winnowing over token k-grams, plus explicit boilerplate suppression and region merging). What Traceweave adds is an open, offline specification with one shared evidence format across profiles and deterministic, byte-identical reports — verified by two independent implementations as evidence that the specification can be implemented independently — separating extraction, private catalogues, comparison reports, and cryptographic attestations.
 
 Every comparison below is restricted to what primary sources audited in [research/lanes/11-report-audit.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/lanes/11-report-audit.md) (and [spec/attestations.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/attestations.md) / [research/drafts/c2pa-mapping.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/c2pa-mapping.md)) directly verify.
 

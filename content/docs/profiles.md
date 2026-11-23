@@ -5,20 +5,20 @@ section: Specification
 status: Draft profiles (experimental)
 ---
 
-Traceweave keeps matching algorithms, tokenizers, normalization rules, and error codes inside versioned **profiles** rather than assuming a single universal representation ([profiles/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/profiles/README.md)). No universal similarity threshold exists across profiles, and none of the profiles below is a registered standard algorithm.
+Traceweave keeps matching algorithms, tokenizers, normalization rules, and error codes inside versioned **profiles** rather than assuming a single universal representation ([profiles/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/profiles/README.md)). One shared evidence format sits underneath, with a profile for each medium. Go and Rust are the first two working case-study profiles, verified by two independent implementations as evidence that the specification can be implemented independently; TypeScript/JavaScript and plain text are specified, still images have been measured in two studies, and more languages and audio are planned ([ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md), [profiles/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/profiles/README.md)). No universal similarity threshold exists across profiles, and none of the profiles below is a registered standard algorithm.
 
 ## Profile summary
 
 | Profile | Version | Status | Channels | Shipped experimental parameters | Reference vectors |
 | --- | --- | --- | --- | --- | --- |
-| **Go** (`go-tokens`) | `draft-1` | Experimental normative draft; implemented in Rust & Go | `exact`, `normalized` | `k = 5`, `w = 4`, `maxInputBytes = 1 MiB` | 34 vectors + 3 limits ([test-vectors/extraction/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/test-vectors/extraction/README.md)) |
-| **Rust** (`rust2024-tokens`) | `draft-1` | Experimental normative draft; implemented in Rust & Go | `exact`, `normalized` | `k = 5`, `w = 4`, `maxInputBytes = 1 MiB` | 78 vectors + 3 limits ([test-vectors/extraction/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/test-vectors/extraction/README.md)) |
+| **Go** (`go-tokens`) | `draft-1` | First case-study profile (experimental draft); verified across two independent implementations | `exact`, `normalized` | `k = 5`, `w = 4`, `maxInputBytes = 1 MiB` | 34 vectors + 3 limits ([test-vectors/extraction/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/test-vectors/extraction/README.md)) |
+| **Rust** (`rust2024-tokens`) | `draft-1` | First case-study profile (experimental draft); verified across two independent implementations | `exact`, `normalized` | `k = 5`, `w = 4`, `maxInputBytes = 1 MiB` | 78 vectors + 3 limits ([test-vectors/extraction/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/test-vectors/extraction/README.md)) |
 | **TypeScript / JavaScript** (`ts-tokens`) | `draft-2` | Frozen for stage-1 implementation (not yet implemented in Rust/Go CLI) | `exact`, `normalized` (`;` excluded from normalized) | `k = 5`, `w = 4`, `maxInputBytes = 1 MiB` | 77 vectors + 3 limits ([test-vectors/extraction-typescript/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/test-vectors/extraction-typescript/README.md)) |
 | **TSX / JSX** (`tsx-tokens`) | `draft-2` | Deferred draft (not normative) | `exact`, `normalized` | `k = 5`, `w = 4`, `maxInputBytes = 1 MiB` | 33 draft vectors ([test-vectors/extraction-typescript/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/test-vectors/extraction-typescript/README.md)) |
 | **Plain text** (`text-plain`) | `draft-1` | Frozen for stage-1 implementation (not yet implemented in Rust/Go CLI) | `exact`, `folded`, `skeleton` | `k = 8`, `w = 8`, `maxInputBytes = 1 MiB` | 55 vectors + 3 limits + 60 records ([test-vectors/extraction-text/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/test-vectors/extraction-text/README.md)) |
 | **Markdown** (`text-markdown`) | `draft-2` | Draft (awaits re-review; not normative) | `exact`, `folded`, `skeleton` | `k = 8`, `w = 8`, `maxInputBytes = 1 MiB` | 21 draft vectors ([test-vectors/extraction-text/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/test-vectors/extraction-text/README.md)) |
 | **Still images** (`traceweave-image-fingerprint`) | `draft-2` | Research draft (not in `profiles/` yet); synthetic contract run `e-img-f-2` completed | PDQ (256-bit) and ISCC Image-Code v0 (64-bit), reported side by side | `T_pdq = 31` (quality floor 50), `T_iscc = 7` | 30 ThreatExchange PDQ vectors + 3 ISCC vectors ([research/drafts/extraction-profile-image.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/extraction-profile-image.md)) |
-| **Audio / Binary** | — | Research only (deferred after M3.4) | — | — | None ([profiles/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/profiles/README.md)) |
+| **Audio / Binary** | — | Planned (not started; deferred after M3.4) | — | — | None ([profiles/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/profiles/README.md)) |
 
 ## Go (`go-tokens` / `draft-1`)
 
@@ -29,7 +29,7 @@ Defined in [spec/extraction.md](https://github.com/connorburgess/traceweave-spec
 - **Semicolon insertion:** reproduces Go's lexical semicolon insertion rule; inserted semicolons carry `inserted: true` and an empty span `[e, e)` at the end of the triggering token, and serialize identically to explicit `;`.
 - **Comments and directives:** line comments (`//`) and non-nested general comments (`/* ... */`) are dropped as trivia, including `//go:` and `//line` directives.
 - **Closed error list (8 + config):** `invalid-utf8`, `bom`, `nul`, `input-too-large`, `illegal-character`, `unterminated-comment`, `unterminated-literal`, `malformed-literal` (plus `unsupported-config`).
-- **Implementation status:** reproduced byte-for-byte by independent hand-written Rust and Go lexers in the implementation repository (9.89 million differential cases agreed in the I1 review; [ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)).
+- **Implementation status:** as one of the first two case-study profiles, reproduced byte-for-byte by two independent hand-written lexers (in Rust and Go) as evidence that the specification can be implemented independently (9.89 million differential cases agreed in the I1 review; [ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)).
 
 ## Rust (`rust2024-tokens` / `draft-1`)
 
@@ -40,7 +40,7 @@ Defined in [spec/extraction.md](https://github.com/connorburgess/traceweave-spec
 - **Deliberate strictness:** rejects NUL, BOM, isolated CR (`isolated-cr`), non-NFC identifiers (`non-nfc-identifier`), and U+200C/U+200D in identifiers (`malformed-identifier`). Handles shebang look-ahead, nested block comments, raw strings (up to 255 `#`), literal suffixes, and delimiter balance (`unbalanced-delimiter`). Doc comments are dropped as trivia.
 - **Normalization:** erases `ident`, all literal classes, and `lifetime` values except `'static` and `'_`.
 - **Closed error list (13 + config):** Go's 8 codes plus `isolated-cr`, `reserved-token`, `unbalanced-delimiter`, `non-nfc-identifier`, `malformed-identifier`.
-- **Implementation status:** implemented in both Rust and Go alongside `go-tokens` ([ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)).
+- **Implementation status:** as the second case-study profile, reproduced byte-for-byte by both independent implementations alongside `go-tokens` ([ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)).
 
 ## TypeScript / JavaScript (`ts-tokens` stage 1; `tsx-tokens` deferred)
 

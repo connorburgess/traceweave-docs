@@ -6,7 +6,7 @@ status: Experimental draft (extraction draft-1, catalogue/report draft-2)
 showWinnowingDiagram: true
 ---
 
-Traceweave's current token-fingerprint baseline runs in three deterministic stages: **extraction**, **catalogue construction**, and **catalogue-only comparison** ([spec/extraction.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/extraction.md), [spec/catalogue-report.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/catalogue-report.md)). Every step is defined down to exact bytes so that independent Rust and Go implementations emit byte-identical outputs.
+Traceweave's current token-fingerprint baseline — exercised first through the Go and Rust case-study profiles — runs in three deterministic stages: **extraction**, **catalogue construction**, and **catalogue-only comparison** ([spec/extraction.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/extraction.md), [spec/catalogue-report.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/catalogue-report.md)), emitting deterministic, byte-identical reports. Every step is defined down to exact bytes; two independent implementations (in Rust and Go) serve as evidence that the specification can be implemented independently with byte-identical outputs.
 
 ## Stage 1: Extraction
 
@@ -31,7 +31,7 @@ Checks execute in strict order; the first failure decides the result:
 
 ### Channels, k-grams, and winnowing
 
-For Go and Rust, extraction produces two channels over the token stream ([spec/extraction.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/extraction.md)):
+For the first two code profiles (Go and Rust), extraction produces two channels over the token stream ([spec/extraction.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/extraction.md)):
 - **`exact`:** preserves each token's original bytes (`input[start:end]`), plus Go inserted semicolons with empty span `[e, e)` and value `;`.
 - **`normalized`:** keeps token classes, keywords, punctuation, and Rust `'static`/`'_` lifetimes, while replacing every `ident` and literal value with `""` (not scope-aware).
 

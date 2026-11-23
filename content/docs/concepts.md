@@ -8,7 +8,14 @@ status: Experimental draft (0.1.0-draft.1)
 > [!WARNING]
 > Traceweave is an experimental design draft (`0.1.0-draft.1`), not a standard and not production software. Its M3 held-out evaluation has not been run.
 
-Traceweave separates three distinct questions ([README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/README.md)):
+Traceweave is an open specification for recognising your own work when it turns up somewhere else, and for producing evidence of the match that anyone can re-run and check.
+
+It is designed to cover any kind of work: source code, writing, images and audio. One shared evidence format sits underneath, with a profile for each medium. Your content never leaves your machine; only fingerprints are compared.
+
+> [!NOTE]
+> **Where it stands today:** source code is working end to end, with Go and Rust as the first two case studies. TypeScript, JavaScript and plain text are specified. Images have been measured in two studies. More languages, audio, and signed, timestamped registration records are planned. It is experimental and not yet evaluated on real-world data. (Sources: [README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/README.md), [ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md), [profiles/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/profiles/README.md).)
+
+Beneath that shared model, Traceweave separates three distinct questions ([README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/README.md)):
 
 1. **Exact identity:** Which exact byte sequence does a record describe?
 2. **Observed similarity or mark recovery:** Does another artifact contain similar token runs, similar image hashes, or bits matching a previously embedded mark?
@@ -22,7 +29,7 @@ Traceweave treats extracted fingerprints, embedded marks, and provenance records
 
 | Mechanism | Modifies original content? | What it produces | Current status in draft |
 | --- | --- | --- | --- |
-| **Extracted fingerprint** | No | Profile-defined features (such as winnowed token k-gram hashes with byte spans, or perceptual image hashes) stored in a private catalogue | Go and Rust extractors + comparator built in two reference implementations; TypeScript (`ts-tokens`) and plain text (`text-plain`) stage-1 profiles frozen; image fingerprint draft tested on synthetic images |
+| **Extracted fingerprint** | No | Profile-defined features (such as winnowed token k-gram hashes with byte spans, or perceptual image hashes) stored in a private catalogue | First two code case studies (Go and Rust) working end to end, verified across two independent implementations (in Rust and Go) to show independent implementability; TypeScript (`ts-tokens`) and plain text (`text-plain`) stage-1 profiles specified and frozen; image fingerprint draft tested on synthetic images |
 | **Embedded mark** | Yes (before distribution) | Deliberately inserted state or payload recovered later from a candidate artifact | No code or prose carrier selected; synthetic Go/Rust carriers failed cheap normalization; Unicode prose marks erased by canonical fold; image mark protocol (`e-img-m-2`) frozen for synthetic testing |
 | **Provenance record** | No (separate envelope or metadata) | Salted commitment to exact catalogue bytes, optional in-toto/DSSE signature, and separate trust/time checks | Commitment opening and bounded Go/Rust DSSE interop measured ([M4.1, M4.2](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)); shipping verifier not built yet |
 

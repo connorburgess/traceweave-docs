@@ -30,16 +30,15 @@ export default function HomePage() {
       <section className="home-hero">
         <h1>Traceweave</h1>
         <p className="home-lead">
-          Traceweave is an open, non-commercial, independent experimental
-          specification, backed by two independent reference implementations in
-          Rust and Go, for recognising your own content when it reappears
-          elsewhere and producing evidence that someone else can re-run and
-          check. Today it compares token fingerprints (winnowing over k-grams of
-          lexer tokens) of source code stored in private, local catalogues that
-          contain no source text, and emits a deterministic, byte-identical
-          comparison report. Profiles for TypeScript/JavaScript and plain text
-          are specified for stage-1 implementation, and still images have a
-          draft fingerprint profile and a frozen embedded-mark study protocol.
+          Traceweave is an open specification for recognising your own work when
+          it turns up somewhere else, and for producing evidence of the match
+          that anyone can re-run and check.
+        </p>
+        <p className="home-lead-follow">
+          It is designed to cover any kind of work: source code, writing, images
+          and audio. One shared evidence format sits underneath, with a profile
+          for each medium. Your content never leaves your machine; only
+          fingerprints are compared.
         </p>
         <div className="home-actions">
           <Link href="/docs/concepts" className="btn-primary">
@@ -52,6 +51,50 @@ export default function HomePage() {
             Limits &amp; threat model
           </Link>
         </div>
+      </section>
+
+      <section
+        className="home-status-block"
+        aria-labelledby="where-it-stands-heading"
+      >
+        <h2 id="where-it-stands-heading" className="sr-only">
+          Where it stands today
+        </h2>
+        <p>
+          <strong>Where it stands today:</strong> source code is working end to
+          end, with Go and Rust as the first two case studies. TypeScript,
+          JavaScript and plain text are specified. Images have been measured in
+          two studies. More languages, audio, and signed, timestamped
+          registration records are planned. It is experimental and not yet
+          evaluated on real-world data.
+        </p>
+        <p className="home-status-sources">
+          Sources:{" "}
+          <a
+            href={`${SPEC_BASE}/README.md`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            README.md
+          </a>
+          ,{" "}
+          <a
+            href={`${SPEC_BASE}/ROADMAP.md`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ROADMAP.md
+          </a>{" "}
+          (pilot languages and later profiles),{" "}
+          <a
+            href={`${SPEC_BASE}/profiles/README.md`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            profiles/README.md
+          </a>
+          .
+        </p>
       </section>
 
       <section className="home-section" aria-labelledby="flow-heading">
@@ -196,8 +239,9 @@ export default function HomePage() {
               over token k-grams follows MOSS (Schleimer, Wilkerson, Aiken,
               2003) and sits alongside JPlag, Dolos, and SCANOSS (
               <Link href="/docs/prior-art">Prior art</Link>). The new work here
-              is the byte-deterministic, offline, dual-implementation contract —
-              not an unbreakable similarity algorithm.
+              is the open, byte-deterministic, offline specification — verified
+              by two independent implementations — not an unbreakable similarity
+              algorithm.
             </li>
           </ul>
         </div>
@@ -223,8 +267,8 @@ export default function HomePage() {
           <Link href="/docs/profiles" className="nav-card">
             <span className="nav-card-title">Profiles</span>
             <span className="nav-card-desc">
-              Go, Rust, TypeScript stage 1, plain text stage 1, and still-image
-              fingerprints.
+              First code profiles (Go and Rust), TypeScript and plain text stage
+              1, still-image studies, and planned media.
             </span>
           </Link>
           <Link href="/docs/research" className="nav-card">

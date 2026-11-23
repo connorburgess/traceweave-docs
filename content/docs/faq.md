@@ -22,7 +22,7 @@ Traceweave produces **reproducible technical evidence for human review**, not a 
 
 ## Can I use Traceweave in production today?
 
-**No.** Traceweave is an experimental design draft (`0.1.0-draft.1`), not a standard and not production software ([README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/README.md)). Only 11 of 47 core roadmap gates (and 3 of 41 later-profile gates) are met ([ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)). The M3 held-out evaluation has not been run, signing verification (`M4.3`–`M4.6`) is unfinished, and the Rust/Go reference implementation repository has not been published yet.
+**No.** Traceweave is an experimental design draft (`0.1.0-draft.1`), not a standard and not production software ([README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/README.md)). Only 11 of 47 core roadmap gates (and 3 of 41 later-profile gates) are met ([ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)). The M3 held-out evaluation has not been run, signing verification (`M4.3`–`M4.6`) is unfinished, and the two independent reference implementations (in Rust and Go) have not been published yet.
 
 ## What is the accuracy or false-alarm rate?
 

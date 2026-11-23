@@ -235,14 +235,14 @@ export function getSearchIndex(): SearchEntry[] {
       title: "Traceweave — Home",
       section: "Overview",
       description:
-        "Experimental open specification for recognising your own content when it reappears elsewhere and producing evidence someone else can re-run and check.",
+        "Traceweave is an open specification for recognising your own work when it turns up somewhere else, and for producing evidence of the match that anyone can re-run and check.",
       headings: [
-        "What Traceweave is",
+        "Where it stands today",
         "How the token-fingerprint flow works",
         "What it can and cannot tell you",
-        "Key negative results",
+        "Negative results and open limits",
       ],
-      body: "Traceweave is an experimental open specification with two independent reference implementations in Rust and Go. It compares token fingerprints using winnowing over k-grams of lexer tokens held in private local catalogues with no source text and emits a deterministic byte-identical comparison report. Experimental draft 0.1.0-draft.1, not a standard, not production software. Evaluation has not been run.",
+      body: "Traceweave is an open specification for recognising your own work when it turns up somewhere else, and for producing evidence of the match that anyone can re-run and check. It is designed to cover any kind of work: source code, writing, images and audio. One shared evidence format sits underneath, with a profile for each medium. Your content never leaves your machine; only fingerprints are compared. Where it stands today: source code is working end to end, with Go and Rust as the first two case studies. TypeScript, JavaScript and plain text are specified. Images have been measured in two studies. More languages, audio, and signed, timestamped registration records are planned. It is experimental and not yet evaluated on real-world data.",
     },
   ];
 

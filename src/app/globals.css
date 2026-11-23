@@ -772,11 +772,41 @@ input:focus-visible,
 }
 
 .home-lead {
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   font-size: 1.08rem;
   line-height: 1.65;
   max-width: 68ch;
   color: var(--ink);
+}
+
+.home-lead-follow {
+  margin: 0 0 22px;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  max-width: 68ch;
+  color: var(--ink-muted);
+}
+
+.home-status-block {
+  margin: 0 0 34px;
+  padding: 16px 20px;
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.home-status-block p {
+  margin: 0;
+}
+
+.home-status-block .home-status-sources {
+  margin-top: 8px;
+  font-size: 0.84rem;
+  color: var(--ink-muted);
 }
 
 .home-actions {
