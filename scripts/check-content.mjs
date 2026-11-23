@@ -16,6 +16,15 @@ const FORBIDDEN_PHRASES = [
 
 const ALLOWED_ENTITY_NAMES = ["Seatbelt Labs"];
 
+const ALLOWED_EXTERNAL_HOSTS = new Set([
+  "github.com",
+  "traceweave.org",
+  "docs.traceweave.org",
+  "seatbeltlabs.com",
+  "creativecommons.org",
+  "www.apache.org",
+]);
+
 const EMAIL_PATTERN = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
 
 const HOME_PATH_PATTERNS = [
@@ -128,8 +137,9 @@ function main() {
         );
       }
       if (line.includes("©") && !line.includes("Unicode, Inc.")) {
+        const snippet = lines.slice(idx, idx + 4).join(" ");
         const hasAllowed = ALLOWED_ENTITY_NAMES.some((name) =>
-          line.includes(name)
+          snippet.includes(name)
         );
         if (!hasAllowed) {
           errors.push(
@@ -194,6 +204,12 @@ function main() {
         ) {
           errors.push(
             `${rel(filePath)}:${lineNum}: invalid hostname in URL "${target}"`
+          );
+          continue;
+        }
+        if (!ALLOWED_EXTERNAL_HOSTS.has(parsed.hostname)) {
+          errors.push(
+            `${rel(filePath)}:${lineNum}: external host "${parsed.hostname}" is not in ALLOWED_EXTERNAL_HOSTS`
           );
           continue;
         }
