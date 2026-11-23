@@ -3,6 +3,7 @@ title: Governance
 description: How decisions are recorded, how independent review works, and how to contribute or report problems in Traceweave.
 section: Project
 status: Open, non-commercial, independent specification
+showMaintainerLine: true
 ---
 
 Traceweave is an **open, non-commercial, independent specification**. It has no standards-body endorsement, no certification program, and no paid service requirements ([CONTRIBUTING.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/CONTRIBUTING.md), [LICENSE.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/LICENSE.md)).

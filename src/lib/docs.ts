@@ -21,6 +21,7 @@ export interface DocPage {
   section: string;
   status?: string;
   showWinnowingDiagram?: boolean;
+  showMaintainerLine?: boolean;
   html: string;
   headings: TocHeading[];
   plainText: string;
@@ -201,6 +202,7 @@ export function getDocBySlug(slugParts: string[]): DocPage | null {
     section?: string;
     status?: string;
     showWinnowingDiagram?: boolean;
+    showMaintainerLine?: boolean;
   };
 
   const navItem = FLAT_NAV_ITEMS.find((i) => i.slug === slug);
@@ -215,6 +217,7 @@ export function getDocBySlug(slugParts: string[]): DocPage | null {
     section: data.section || navItem?.section || "Documentation",
     status: data.status,
     showWinnowingDiagram: Boolean(data.showWinnowingDiagram),
+    showMaintainerLine: Boolean(data.showMaintainerLine),
     html,
     headings,
     plainText,

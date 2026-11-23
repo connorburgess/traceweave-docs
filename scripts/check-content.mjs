@@ -152,7 +152,7 @@ function main() {
         }
       }
       if (line.includes("©") && !line.includes("Unicode, Inc.")) {
-        const snippet = lines.slice(idx, idx + 4).join(" ");
+        const snippet = lines.slice(idx, idx + 16).join(" ");
         const hasAllowed = ALLOWED_ENTITY_NAMES.some((name) =>
           snippet.includes(name)
         );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -242,9 +243,22 @@ export function DocsShell({
             has been measured yet.
           </div>
           <div className="footer-meta">
-            <span>
+            <span className="footer-legal">
               © 2026{" "}
-              <a href="https://seatbeltlabs.com" rel="noopener noreferrer">Seatbelt Labs</a>{" "}
+              <a
+                href="https://seatbeltlabs.com"
+                rel="noopener noreferrer"
+                className="brand-link"
+              >
+                <Image
+                  src="/brand/seatbelt-labs-mark.svg"
+                  alt="Seatbelt Labs"
+                  width={20}
+                  height={20}
+                  className="brand-mark"
+                />
+                <span>Seatbelt Labs</span>
+              </a>{" "}
               · Documentation prose:{" "}
               <a
                 href="https://creativecommons.org/licenses/by/4.0/"
