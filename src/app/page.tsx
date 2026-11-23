@@ -60,7 +60,7 @@ export default function HomePage() {
           evaluated on real-world data.
         </p>
         <p className="home-status-sources">
-          Draft <code>0.1.0-draft.1</code> — see the{" "}
+          See the{" "}
           <Link href="/docs/roadmap">roadmap and gate counts</Link> (11 of 47
           core gates met; 3 of 41 later-profile gates met). Sources:{" "}
           <a

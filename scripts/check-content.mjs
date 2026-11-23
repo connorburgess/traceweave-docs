@@ -363,13 +363,18 @@ function main() {
     }
   }
 
-  // 5. Ensure prefers-color-scheme is never read in source or styles
+  // 5. Ensure prefers-color-scheme is never read and no amber status banner/badge exists
   const styleFiles = walkFiles(srcDir, [".css", ".ts", ".tsx"]);
   for (const filePath of styleFiles) {
     const raw = fs.readFileSync(filePath, "utf8");
     if (raw.includes("prefers-color-scheme")) {
       errors.push(
         `${rel(filePath)}: must not read prefers-color-scheme (light is always the default)`
+      );
+    }
+    if (raw.includes("status-banner") || raw.includes("header-status")) {
+      errors.push(
+        `${rel(filePath)}: amber status banner/badge must not be present; keep experimental status in the Where it stands today block and footer`
       );
     }
   }

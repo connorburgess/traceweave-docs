@@ -2,7 +2,7 @@
 title: Roadmap and status
 description: Gate-by-gate progress counts from ROADMAP.md (version 2), implementation track status, and owner decisions.
 section: Project
-status: Active research roadmap v2 (updated 2026-11-22 / decisions 2026-11-23)
+status: Draft 0.1.0-draft.1 · Active research roadmap v2 (updated 2026-11-22 / decisions 2026-11-23)
 ---
 
 Traceweave tracks progress through verifiable **gates** rather than dates or milestone narratives ([ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)). No release dates and no detection accuracy promises are made.

@@ -2,7 +2,6 @@
 title: Limits and threat model
 description: Known failure modes, adversarial assumptions, negative research results, and explicit non-claims.
 section: Specification
-status: Experimental draft (0.1.0-draft.1)
 ---
 
 Traceweave's threat model ([spec/threat-model.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/threat-model.md)) assumes an adversary has the full specification, both reference implementations, all public releases, and any distributed content. Only owner-specific keys and local reference catalogues remain private. **An adversary does not need to recover a key to erase observable code, text, or media features.**

@@ -2,7 +2,6 @@
 title: Contributing and licences
 description: How to contribute to the Traceweave specification, run local validation, report security issues, and comply with the dual-licence split.
 section: Project
-status: Experimental draft (0.1.0-draft.1)
 ---
 
 ## Contributing to the specification

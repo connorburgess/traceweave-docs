@@ -2,7 +2,6 @@
 title: Frequently asked questions
 description: Plain answers about what Traceweave records, its scope, experimental status, research findings, and privacy boundaries.
 section: Project
-status: Experimental draft (0.1.0-draft.1)
 ---
 
 ## Does this show something is mine?

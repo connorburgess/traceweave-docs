@@ -86,10 +86,6 @@ export function DocsShell({
             <Link href="/" className="wordmark" aria-label="Traceweave home">
               traceweave
             </Link>
-
-            <span className="header-status" role="note">
-              Experimental draft (0.1.0-draft.1)
-            </span>
           </div>
 
           <div className="header-right">
@@ -237,8 +233,8 @@ export function DocsShell({
       <footer className="site-footer">
         <div className="footer-inner">
           <div className="footer-status">
-            <strong>Status:</strong> Experimental draft (0.1.0-draft.1).
-            Held-out evaluation on real-world data has not yet been run.
+            <strong>Status:</strong> Experimental specification — not yet
+            evaluated on real-world data.
           </div>
           <div className="footer-meta">
             <span className="footer-legal">

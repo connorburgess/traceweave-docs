@@ -2,7 +2,6 @@
 title: Start here & concepts
 description: Core vocabulary and separation of concerns in Traceweave — fingerprints, embedded marks, catalogues, reports, outcomes, and provenance.
 section: Overview
-status: Experimental draft (0.1.0-draft.1)
 ---
 
 Traceweave is an open specification for recognising your own work when it turns up somewhere else, and for producing evidence of the match that anyone can re-run and check.
