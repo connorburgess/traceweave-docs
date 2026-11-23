@@ -218,7 +218,7 @@ export function FlowDiagram() {
             Note: Unkeyed hashes in a catalogue still allow guessing or confirming known code; keep catalogues private.
           </text>
           <text x="28" y="216" className="svg-footnote">
-            Comparison reads catalogues only (no source text). Signatures, signer trust, timestamps, and rights review stay separate.
+            Comparison reads catalogues only (no source text). Signatures, signer trust, timestamps, and origin context stay separate.
           </text>
         </svg>
       </div>

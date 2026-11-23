@@ -9,7 +9,7 @@ Lane 10 reviewed eight primary image-fingerprinting, watermarking, attack, and p
 
 ## Primary families evaluated
 
-| ID | Family | What it is | Strongest supported evidence (author-run) | Verdict for Traceweave |
+| ID | Family | What it is | Strongest supported evidence (author-run) | Role in Traceweave |
 | --- | --- | --- | --- | --- |
 | **F1** | **PDQ** (Meta ThreatExchange, BSD) | 256-bit DCT perceptual hash + 0–100 quality score | Clusters 157 CopyDays originals + JPEG 75/50 at threshold 32; deep crops score at random-pair distances. | **Primary fingerprint baseline** (`IMGF`). |
 | **F2** | **Jain et al.** (USENIX Security 2022) | Black-box evasion & FPR study of pHash, aHash, dHash, PDQ | On ImageNet (`N = 500k`), PDQ at `T = 70` reaches 0.11% FPR; black-box small-L2 evasion succeeded on **99.9%** of 1,000 images × 10 runs. | Fingerprint evasion ceiling. |

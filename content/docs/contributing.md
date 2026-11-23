@@ -13,7 +13,7 @@ The specification repository lives at [github.com/connorburgess/traceweave-spec]
 - **Move formats, examples, and tests together:** wire-format changes must update schemas, valid examples, negative rejection cases, and version identifiers in the same change. Released identifiers will not be silently repurposed; draft identifiers may change before a stable release.
 - **Profile proposals:** must specify deterministic extraction, supported inputs, matching semantics, hand-derived test fixtures, and known failures.
 - **Numerical detection claims:** must include held-out evaluation and a stated false-alarm unit with denominators.
-- **Keep private material out of contributions:** never submit private keys, real private catalogues, unpublished suspect content, or identifying investigation records. Use redistributable synthetic fixtures only. Never label a similarity result as infringement.
+- **Keep private material out of contributions:** never submit private keys, real private catalogues, unpublished suspect content, or identifying investigation records. Use redistributable synthetic fixtures only, and keep similarity results scoped to observed technical matches.
 - **Independent implementations are welcome:** any CLI or agent workflow is an optional interface, not a core conformance requirement ([spec/conformance.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/conformance.md)).
 - **Contact:** [connor@seatbeltlabs.com](mailto:connor@seatbeltlabs.com).
 

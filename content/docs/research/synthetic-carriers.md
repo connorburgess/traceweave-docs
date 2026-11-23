@@ -5,8 +5,7 @@ section: Research & experiments
 status: Measured research records (negative & inconclusive results; not counted toward M2E gates)
 ---
 
-> [!CAUTION]
-> **Negative result (`SYN.3`, `SYN.4`) and inconclusive census (`SYN.5`):** While narrow synthetic Go and Rust syntax carriers survived standard formatters (`gofmt`, `rustfmt`), cheap normalization erased **55 of 55** nonzero states in both languages, same-context signal transplants decoded cleanly, and a four-repository public census established **zero** safe eligible sites.
+The synthetic code-carrier studies (`SYN.1`–`SYN.5`) tested narrow syntax and naming carriers in Go and Rust against formatters, cheap normalization, fragment relocation, signal transplantation, and a four-repository public-code eligibility census. While the carriers survived `gofmt` and `rustfmt` (**55 of 55** nonzero states per language), cheap normalization reset all **55 of 55** states in both languages, same-context transplants decoded cleanly, and the four-repository census established **zero** safe eligible sites.
 
 ## Synthetic carrier experiments (`SYN.1`–`SYN.3`)
 

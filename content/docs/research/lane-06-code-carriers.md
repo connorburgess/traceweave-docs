@@ -5,8 +5,7 @@ section: Research & experiments
 status: Evidence review & report audit (2026-11-22)
 ---
 
-> [!CAUTION]
-> **Decision:** Do not select a Go or Rust production carrier or start a new code-embedding experiment from this review ([research/lanes/06-evidence-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/lanes/06-evidence-review.md)). None of the reviewed code-watermarking candidates clears the project's carrier bar ([research/research-06-08-checkpoint.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/research-06-08-checkpoint.md)).
+Lane 06 reviewed published code-watermarking systems (SrcMarker, RoSeMary, and SEW) against primary sources and audited an external report proposing AST commutative-pair watermarking ([research/lanes/06-evidence-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/lanes/06-evidence-review.md)). None of the reviewed candidates cleared the project's carrier bar, so no Go or Rust production carrier or new code-embedding experiment was selected ([research/research-06-08-checkpoint.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/research-06-08-checkpoint.md)).
 
 ## Primary candidates reviewed
 

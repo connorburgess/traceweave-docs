@@ -5,14 +5,13 @@ section: Research & experiments
 status: Evidence review & report audit (2026-11-22)
 ---
 
-> [!CAUTION]
-> **Negative result for embedded marks in existing prose:** Lane 09 found no embedded text-marking scheme worth testing ([research/lanes/09-evidence-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/lanes/09-evidence-review.md)). Unicode homoglyph and zero-width marks are erased completely by one published deterministic fold, and post-hoc lexical rewriting (AWT) alters the author's wording at ~4 raw bits per 80 words with no licence file.
+Lane 09 reviewed prose fingerprinting and embedded text-marking mechanisms across eight primary source families ([research/lanes/09-evidence-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/lanes/09-evidence-review.md)). It led to the folded-text winnowing profile in [profiles/text.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/profiles/text.md) and found no embedded prose-marking scheme suitable for testing: Unicode homoglyph and zero-width marks are erased by one published deterministic fold, and post-hoc lexical rewriting (AWT) alters the author's wording at ~4 raw bits per 80 words with no licence file.
 
 ## Primary sources evaluated
 
 Eight primary source families were reviewed on 2026-11-22 ([research/lanes/09-evidence-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/lanes/09-evidence-review.md)):
 
-| ID | Source | Key evidence | Verdict for Traceweave |
+| ID | Source | Key evidence | Decision for Traceweave |
 | --- | --- | --- | --- |
 | **W** | Schleimer, Wilkerson, Aiken, *Winnowing* (SIGMOD 2003) | Formal locality for shared runs ≥ `w + k − 1` units; measured density 0.019902 vs predicted 0.019802 (k=50 chars, w=100); no measured precision/recall or negative-set false-alert rate. | **Adopted baseline host** (`profiles/text.md`). |
 | **B** | Broder, *Resemblance and containment* (1997) | Shingling estimators; containment requires a size-proportional sketch. | Secondary summary field only. |

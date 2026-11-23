@@ -17,7 +17,7 @@ From [spec/threat-model.md](https://github.com/connorburgess/traceweave-spec/blo
 | **Partial extraction into a large host** | Localize byte spans and report directional containment separately from whole-file similarity. |
 | **Rewriting, regeneration, cross-language ports** | Allow abstention (`no-match` / `abstain`). Arbitrary rewriting has no detection assurance. |
 | **Independent same-task implementation** | Include hard negative controls; shared structure or semantics is not ancestry. |
-| **Shared dependencies and lawful historical copies** | Keep origin and licence review separate from technical similarity. |
+| **Shared dependencies and permitted historical copies** | Keep origin context separate from technical similarity. |
 | **Transplanted marks and repeated fragments** | Never attribute a whole artifact from a small copied span or a transferred signal. |
 | **Signed false claims** | Authenticate the signer under a trust policy; a valid signature never makes the signed claim true. |
 | **Key or catalogue compromise** | Document loss of privacy and trust; retain prior evidence with compromise context. |
@@ -35,10 +35,9 @@ The core matcher compares winnowed k-grams of lexer tokens (established prior ar
 - **Short fragments:** any unchanged token run shorter than `k + w − 1` tokens loses winnowing's locality property; under `k = 5, w = 4`, the minimum locality-covered run is 8 tokens, and the minimum possible reportable match under `minRegionDistinctHashes = 2` is 6 tokens (two adjacent selected k-grams), with two disjoint full windows requiring 12 tokens ([research/lanes/11-report-audit.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/lanes/11-report-audit.md)).
 - **Boilerplate suppression is advisory:** explicit-catalogue suppression removes only hashes that winnowing happened to select in the boilerplate catalogue's context; idioms selected differently in another file remain unsuppressed ([spec/catalogue-report.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/catalogue-report.md)).
 
-## Negative results on embedded marks
+## Findings on embedded marks
 
-> [!CAUTION]
-> Across source code, existing prose, and still images, every reviewed or tested embedded-mark approach exhibits cheap removal, keyless copying, or both.
+Across source code, existing prose, and still images, every reviewed or tested embedded-mark approach exhibits cheap removal, keyless copying, or both.
 
 1. **Source code (`SYN.1`–`SYN.5`, Lane 06):**
    - Synthetic Go and Rust syntax/naming carriers survived `gofmt` and `rustfmt` (55/55 nonzero states per language) but **all 55/55 were reset by cheap canonicalization**, and same-context signal transplants decoded cleanly ([research/experiment-checkpoint.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/experiment-checkpoint.md), [research/fragment-policy-checkpoint.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/fragment-policy-checkpoint.md)).
@@ -63,11 +62,11 @@ The core matcher compares winnowed k-grams of lexer tokens (established prior ar
 - **Reports are private by default:** a report exposes artifact IDs, whole-file `sha256` digests, byte spans, and overlap counts.
 - **No remote resolver yet:** query leakage, enumeration, and membership disclosure for any future remote resolver are unstudied (open gates `RES.1`–`RES.3`).
 
-## Explicit non-goals
+## Scope boundaries
 
 From [docs/use-cases.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/docs/use-cases.md) and [spec/threat-model.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/threat-model.md):
 
-- **Not DRM or copy prevention:** conformance never prevents copying.
+- **Observation, not copy restriction:** Traceweave records checkable provenance and similarity evidence; it does not restrict copying or alter runtime behavior.
 - **No hidden mechanisms:** no planted defects, callbacks, telemetry, network calls at runtime, or behavior changes are part of the design.
-- **No legal or training-membership verdicts:** Traceweave does not establish ownership, authorship, copyright infringement, licence compliance, or model-training membership.
-- **No unmeasured accuracy claims:** the M3 evaluation has not been run, so no precision, recall, or false-alarm rate is claimed.
+- **Technical records only:** Traceweave reports observable digests, fingerprint matches, and signature checks. Ownership, authorship, permission, and model-training membership are outside what a report determines.
+- **Unmeasured accuracy:** the M3 evaluation has not been run yet, so no precision, recall, or false-alarm rate is claimed.

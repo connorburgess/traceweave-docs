@@ -18,15 +18,6 @@ export default function HomePage() {
 
   return (
     <DocsShell searchIndex={searchIndex} isHome>
-      <div className="status-banner" role="status">
-        <strong>Experimental design draft (0.1.0-draft.1).</strong> Traceweave
-        is an open, non-commercial, independent specification — not a standard
-        and not production software. Its held-out evaluation has not been run,
-        so no detection accuracy or false-alarm rate is claimed. See the{" "}
-        <Link href="/docs/roadmap">roadmap and gate counts</Link> (11 of 47 core
-        gates met; 3 of 41 later-profile gates met).
-      </div>
-
       <section className="home-hero">
         <h1>Traceweave</h1>
         <p className="home-lead">
@@ -69,7 +60,9 @@ export default function HomePage() {
           evaluated on real-world data.
         </p>
         <p className="home-status-sources">
-          Sources:{" "}
+          Draft <code>0.1.0-draft.1</code> — see the{" "}
+          <Link href="/docs/roadmap">roadmap and gate counts</Link> (11 of 47
+          core gates met; 3 of 41 later-profile gates met). Sources:{" "}
           <a
             href={`${SPEC_BASE}/README.md`}
             target="_blank"
@@ -103,10 +96,12 @@ export default function HomePage() {
       </section>
 
       <section className="home-section" aria-labelledby="can-cannot-heading">
-        <h2 id="can-cannot-heading">What it can and cannot tell you</h2>
+        <h2 id="can-cannot-heading">
+          What a report records — and what stays out of scope
+        </h2>
         <div className="two-col-grid">
           <div className="panel-card">
-            <h3>What Traceweave can report</h3>
+            <h3>What a report records</h3>
             <ul>
               <li>
                 <strong>Shared token runs with exact byte spans:</strong>{" "}
@@ -162,30 +157,27 @@ export default function HomePage() {
             </ul>
           </div>
 
-          <div className="panel-card panel-card-negative">
-            <h3>What Traceweave cannot tell you</h3>
+          <div className="panel-card">
+            <h3>Out of scope</h3>
             <ul>
               <li>
-                <strong>Not ownership or authorship:</strong> a fingerprint
-                match, a decoded mark, or a valid signature never establishes
-                who wrote or owns content, nor direction of copying.
+                <strong>Origin and permission judgments:</strong> a fingerprint
+                match, a decoded mark, or a valid signature records checkable
+                facts; ownership, authorship, direction of copying, and
+                permission are judgments for people. Common idioms, shared
+                dependencies, and permitted historical copies can also match.
               </li>
               <li>
-                <strong>Not infringement or permission:</strong> common idioms,
-                shared dependencies, and permitted historical copies can match;
-                rights review is explicitly outside the report.
+                <strong>Absence of reuse:</strong> <code>no-match</code> means
+                insufficient matching evidence under the active configuration.
+                Inserting or altering one token every <code>k &minus; 1</code>{" "}
+                tokens breaks k-gram overlap.
               </li>
               <li>
-                <strong>Not absence of reuse:</strong> <code>no-match</code>{" "}
-                means insufficient matching evidence under the active
-                configuration. Light rewriting (one inserted token every{" "}
-                <code>k &minus; 1</code> tokens) defeats k-gram overlap.
-              </li>
-              <li>
-                <strong>Not calibrated accuracy:</strong> the M3 held-out
-                evaluation has not been run. Experimental parameters (such as{" "}
-                <code>k = 5, w = 4</code>) carry no measured precision, recall,
-                or false-alarm rate.
+                <strong>Calibrated accuracy:</strong> the M3 held-out
+                evaluation has not been run yet. Experimental parameters (such
+                as <code>k = 5, w = 4</code>) carry no measured precision,
+                recall, or false-alarm rate.
               </li>
             </ul>
           </div>
@@ -193,12 +185,11 @@ export default function HomePage() {
       </section>
 
       <section className="home-section" aria-labelledby="negative-results-heading">
-        <h2 id="negative-results-heading">Negative results and open limits</h2>
-        <div className="callout callout-caution" role="note">
-          <div className="callout-title">Key measured and reviewed limits</div>
+        <h2 id="negative-results-heading">Measured limits and findings</h2>
+        <div className="panel-card">
           <ul>
             <li>
-              <strong>Embedded marks in source code failed cheap normalization:</strong>{" "}
+              <strong>Embedded marks in source code reset under cheap normalization:</strong>{" "}
               in the synthetic Go and Rust carrier experiments, 55 of 55 nonzero
               states per language survived formatters (<code>gofmt</code>/
               <code>rustfmt</code>) but all 55 of 55 were reset by cheap
@@ -212,15 +203,15 @@ export default function HomePage() {
               cleared the project bar.
             </li>
             <li>
-              <strong>Embedded marks in existing prose do not survive normalization:</strong>{" "}
+              <strong>Embedded marks in existing prose reset under canonical folding:</strong>{" "}
               <Link href="/docs/research/lane-09-text-profile">Lane 09</Link>{" "}
               found that Unicode homoglyph and zero-width carriers are erased by
               one published canonical fold (NFKC + UTS #39 skeleton + deleting{" "}
-              <code>Default_Ignorable_Code_Point</code>), and rejected learned
+              <code>Default_Ignorable_Code_Point</code>), and set aside learned
               lexical rewriting (AWT).
             </li>
             <li>
-              <strong>Image watermarks are a finding aid, not evidence of origin:</strong>{" "}
+              <strong>Image watermarks act as a finding aid, not origin evidence:</strong>{" "}
               reviewed post-hoc schemes (TrustMark-Q, PixelSeal) have public,
               unkeyed encoders and decoders, so anyone can decode a mark and
               re-embed it onto an unrelated image without the key, and each
@@ -235,13 +226,13 @@ export default function HomePage() {
               committed full run yet.
             </li>
             <li>
-              <strong>Core matching is established prior art:</strong> winnowing
-              over token k-grams follows MOSS (Schleimer, Wilkerson, Aiken,
-              2003) and sits alongside JPlag, Dolos, and SCANOSS (
-              <Link href="/docs/prior-art">Prior art</Link>). The new work here
-              is the open, byte-deterministic, offline specification — verified
-              by two independent implementations — not an unbreakable similarity
-              algorithm.
+              <strong>Core matching builds on established prior art:</strong>{" "}
+              winnowing over token k-grams follows MOSS (Schleimer, Wilkerson,
+              Aiken, 2003) and sits alongside JPlag, Dolos, and SCANOSS (
+              <Link href="/docs/prior-art">Prior art</Link>). The contribution
+              here is the open, byte-deterministic, offline specification —
+              verified by two independent implementations — rather than a new
+              similarity algorithm.
             </li>
           </ul>
         </div>
@@ -288,8 +279,8 @@ export default function HomePage() {
           <Link href="/docs/faq" className="nav-card">
             <span className="nav-card-title">FAQ</span>
             <span className="nav-card-desc">
-              Plain answers to common questions, including why Traceweave does
-              not establish ownership.
+              Plain answers about scope, evaluation status, privacy, and related
+              tools.
             </span>
           </Link>
         </div>

@@ -13,20 +13,20 @@ A report (`traceweave-report-draft-2`) is an inspectable record of a catalogue-o
 
 - **Deterministic body:** binds the SHA-256 digests of the reference catalogue, candidate catalogue, comparison configuration, and optional suppression catalogue (`inputs`), plus per-pair outcomes, matched regions with UTF-8 byte spans, distinct-hash counts, and unreduced containment and Jaccard fractions.
 - **Separate provenance block:** records `bodySha256`, `comparisonConfigSha256`, `implementation` (`name`, `version`, `commit`), `specCommit`, and optional `generatedAt` (explicitly a claimed time, not a trusted timestamp).
-- **What the report forbids:** any `ownership`, `authorship`, `infringement`, `licence`, `origin`, `rank`, `score`, or `signatureValid` field. Schema validation rejects reports that include them (`additionalProperties: false`; [test-vectors/matching/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/test-vectors/matching/README.md)).
+- **Schema scope:** comparison reports carry matching observations only (`additionalProperties: false`). Fields for attribution, ranking, scores, signatures, or context notes are rejected by schema validation ([test-vectors/matching/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/test-vectors/matching/README.md)).
 
-### Independent verification verdicts
+### Independent verification checks
 
-An implementation handling signed evidence must report six checks independently rather than collapsing them into a single status badge ([docs/implementation-patterns.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/docs/implementation-patterns.md)):
+An implementation handling signed evidence reports six checks independently rather than collapsing them into a single status badge ([docs/implementation-patterns.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/docs/implementation-patterns.md)):
 
 1. **Exact subject digest** (does the candidate match the exact SHA-256 subject?)
 2. **Signature validity** (does the cryptographic signature verify over the exact PAE bytes?)
 3. **Signer trust** (is that key accepted by the verifier's local trust policy?)
 4. **Timestamp verification** (if an RFC 3161 token is present, does it verify independently?)
 5. **Fingerprint or mark comparison** (what candidate spans or bit agreements were observed?)
-6. **Rights and origin review** (handled outside the detector in a separate review packet)
+6. **Origin and context review** (handled outside the detector in a separate review packet)
 
-A soft fingerprint match never repairs a failed exact subject digest. A valid signature from an untrusted key never satisfies trust. Signing someone else's public content does not establish ownership ([spec/attestations.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/attestations.md)).
+A soft fingerprint match does not satisfy a failed exact subject digest, a valid signature from an untrusted key does not satisfy trust, and signing bytes authenticates the signer rather than establishing original authorship ([spec/attestations.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/attestations.md)).
 
 ## Private catalogue commitment
 
@@ -69,8 +69,8 @@ Until all M4 engineering gates close, any experimental detector release must be 
 
 ## C2PA 2.5 mapping status
 
-> [!WARNING]
-> **No C2PA compatibility is claimed.** The mapping in [research/drafts/c2pa-mapping.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/c2pa-mapping.md) is an unreviewed research draft. No C2PA tool (such as `c2pa-rs`) has been installed, built, or run, and no fixture has been serialized to CBOR or JUMBF or signed. Gates `C2PA.1`–`C2PA.3` remain open.
+> [!NOTE]
+> **Status:** The mapping in [research/drafts/c2pa-mapping.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/c2pa-mapping.md) is an unreviewed research draft, and no C2PA compatibility is claimed. No C2PA tool (such as `c2pa-rs`) has been installed, built, or run, and no fixture has been serialized to CBOR or JUMBF or signed. Gates `C2PA.1`–`C2PA.3` remain open.
 
 The draft maps Traceweave records against C2PA Technical Specification 2.5 and the Soft Binding API 2.5, with 6 illustrative JSON fixtures and 18 negative fixtures checked by a local script ([research/drafts/c2pa-fixtures/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/c2pa-fixtures/README.md)). Key findings:
 

@@ -5,8 +5,7 @@ section: Research & experiments
 status: Measured contract check (gates IMGF.2–IMGF.4 met; synthetic images only, no natural-image rate claimed)
 ---
 
-> [!WARNING]
-> **Contract-and-record check only, not a natural-image accuracy measurement.** All counts below come from 200 procedurally generated synthetic images (shapes, gradients, texture noise) with fixed experimental thresholds (`T_pdq = 31`, `T_iscc = 7`) and **no pass line**. They do not establish a false-match rate or performance on real photographs ([RESULTS.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/experiments/image-fingerprint/results/e-img-f-2/RESULTS.md)).
+Run `e-img-f-2` exercises Traceweave's draft still-image fingerprint contract (PDQ and ISCC Image-Code v0 side by side) across 200 procedurally generated synthetic images and 12 deterministic edits ([RESULTS.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/experiments/image-fingerprint/results/e-img-f-2/RESULTS.md)). Scope: this is a contract-and-record check with fixed experimental thresholds (`T_pdq = 31`, `T_iscc = 7`) and no pass line; it does not measure false-match rates or performance on real photographs.
 
 ## Setup and validity conditions
 

@@ -5,9 +5,6 @@ section: Overview
 status: Experimental draft (0.1.0-draft.1)
 ---
 
-> [!WARNING]
-> Traceweave is an experimental design draft (`0.1.0-draft.1`), not a standard and not production software. Its M3 held-out evaluation has not been run.
-
 Traceweave is an open specification for recognising your own work when it turns up somewhere else, and for producing evidence of the match that anyone can re-run and check.
 
 It is designed to cover any kind of work: source code, writing, images and audio. One shared evidence format sits underneath, with a profile for each medium. Your content never leaves your machine; only fingerprints are compared.
@@ -21,7 +18,7 @@ Beneath that shared model, Traceweave separates three distinct questions ([READM
 2. **Observed similarity or mark recovery:** Does another artifact contain similar token runs, similar image hashes, or bits matching a previously embedded mark?
 3. **Verification and review:** What cryptographic signatures, signer trust policies, timestamps, or historical origin records support a review?
 
-Keeping these questions separate is the central rule of [spec/core.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/core.md). A valid signature authenticates bytes under a key; it does not make a similarity claim true or establish authorship, permission, or infringement.
+Keeping these questions separate is the central rule of [spec/core.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/core.md). A valid signature authenticates bytes under a key; it does not establish how two works relate or who authored them.
 
 ## Fingerprints versus embedded marks
 
@@ -72,11 +69,11 @@ Separating these prevents a copied function embedded inside a much larger host f
 
 ## Provenance and review packets
 
-Comparison reports deliberately forbid ownership, signature, trust, ranking, and licence fields ([spec/catalogue-report.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/catalogue-report.md)). Instead:
+Comparison reports record matching observations only; fields for ownership, signatures, trust, ranking, or context notes stay out of the report schema ([spec/catalogue-report.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/catalogue-report.md)). Instead:
 
 - **Exact-byte commitments** (`sha256-salted-catalogue-v1`) bind a public record to private catalogue bytes using a 32-byte random nonce without disclosing the catalogue until opened ([spec/core.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/core.md)).
 - **Attestations** use a restricted in-toto Statement v1 / DSSE envelope adapter to authenticate exact payload bytes; signature validity, signer trust, subject digest, and timestamp verification are reported independently ([spec/attestations.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/attestations.md)).
-- **Origin and licence review packets** (planned under gate [M2.7](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)) will live in a separate record referencing a report's `bodySha256` and a region key `(reference id, candidate id, mode, first seed p, first seed q)`.
+- **Origin review packets** (planned under gate [M2.7](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)) will live in a separate record referencing a report's `bodySha256` and a region key `(reference id, candidate id, mode, first seed p, first seed q)`.
 
 ## Glossary
 

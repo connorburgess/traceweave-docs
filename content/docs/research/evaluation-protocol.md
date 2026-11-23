@@ -5,10 +5,9 @@ section: Research & experiments
 status: Ready to freeze (not yet run; corpus not yet acquired)
 ---
 
-> [!WARNING]
-> **The M3 evaluation has not been run.** No corpus has been acquired yet, no thresholds have been frozen, and no recall or false-alarm rate has been measured. Every parameter in [spec/extraction.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/extraction.md) and [spec/catalogue-report.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/catalogue-report.md) remains experimental.
+Protocol `m3-eval-draft-5` ([research/drafts/evaluation-protocol.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/evaluation-protocol.md)) specifies how roadmap gates `M3.0`–`M3.6` will measure the first two code profiles — Go (`go-tokens`) and Rust (`rust2024-tokens`) — on 48 public repositories without tuning on held-out data.
 
-Protocol `m3-eval-draft-5` ([research/drafts/evaluation-protocol.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/evaluation-protocol.md)) specifies how roadmap gates `M3.0`–`M3.6` will measure the Go (`go-tokens`) and Rust (`rust2024-tokens`) token-fingerprint baseline without tuning on held-out data.
+**Status:** the M3 evaluation has not been run yet. No corpus has been acquired, no thresholds have been frozen, and every parameter in [spec/extraction.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/extraction.md) and [spec/catalogue-report.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/catalogue-report.md) remains experimental.
 
 ## M3.0 false-alarm budget (met, 2026-11-23)
 

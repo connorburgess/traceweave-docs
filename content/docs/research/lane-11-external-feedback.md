@@ -7,15 +7,15 @@ status: Report audit (2026-11-23)
 
 On 2026-11-23, Lane 11 audited two external design critiques of Traceweave (one from Perplexity with 45 listed citations, 23 used; one from Google's research tooling with zero citations) plus a third model's critique of the Google answer ([research/lanes/11-report-audit.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/lanes/11-report-audit.md)). Every outside-world claim was checked against immutable primary papers, specifications, and source code commits.
 
-## Top-level audit verdicts
+## Top-level audit findings
 
 - **Perplexity — keep as a checklist, with corrections:** 15 outside-world claims checked (1 contradicted: a "lossless" mapping to SCANOSS `.wfp` is impossible in either direction). Most criticisms of Traceweave (such as claiming seed merging was underspecified or abstentions were not reported separately) were artefacts of the short brief; the contracts already specify both.
-- **Google — reject verdict and four of six recommendations:** numbers copied from other tools were mostly accurate, but its conclusions misread Traceweave's suppression mechanism, ignored `minRegionDistinctHashes` on a diagonal, wrongly claimed Unicode 17.0.0 was unreleased (released 2025-09-09), misstated Dolos's rolling hash as 64-bit (actually a 25-bit modulus `33,554,393`), and wrongly called Traceweave redundant with in-toto and C2PA (neither performs similarity matching).
+- **Google — reject conclusion and four of six recommendations:** numbers copied from other tools were mostly accurate, but its conclusions misread Traceweave's suppression mechanism, ignored `minRegionDistinctHashes` on a diagonal, wrongly claimed Unicode 17.0.0 was unreleased (released 2025-09-09), misstated Dolos's rolling hash as 64-bit (actually a 25-bit modulus `33,554,393`), and wrongly called Traceweave redundant with in-toto and C2PA (neither performs similarity matching).
 - **What survived from both:** the empirical `k = 5` false-match risk is real and directly testable on tuning data before the M3 freeze, and adversarial / LLM-rewrite evaluation belongs in a follow-up gate after M3.4.
 
 ## Selected claims checked against primary sources
 
-| Claim | Verdict | Primary basis ([research/lanes/11-report-audit.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/lanes/11-report-audit.md)) |
+| Claim | Assessment | Primary basis ([research/lanes/11-report-audit.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/lanes/11-report-audit.md)) |
 | --- | --- | --- |
 | "Raise `k` to 15–20 tokens; `k = 5, w = 4` causes rampant false positives" | **Unsupported mandate; testable** | No data offered. Published thresholds differ by unit: JPlag 8 tokens (Go/Rust), Dolos `k = 23` Tree-sitter paren/node tokens (`w = 17`), SCANOSS 30 bytes (`w = 64`). Also ignored that Traceweave requires `minRegionDistinctHashes` distinct non-common hashes on one diagonal. |
 | "One inserted token every `k − 1` tokens breaks every k-gram" | **Supported (arithmetic)** | Period-5 insertion (4 kept, 1 inserted) puts an inserted token inside every 5-token window. |

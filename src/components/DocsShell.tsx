@@ -88,7 +88,7 @@ export function DocsShell({
             </Link>
 
             <span className="header-status" role="note">
-              Experimental draft (0.1.0-draft.1) — not a standard, not production software
+              Experimental draft (0.1.0-draft.1)
             </span>
           </div>
 
@@ -237,10 +237,8 @@ export function DocsShell({
       <footer className="site-footer">
         <div className="footer-inner">
           <div className="footer-status">
-            <strong>Status:</strong> Experimental design draft (0.1.0-draft.1) —
-            an open, non-commercial, independent specification. Not a standard,
-            not production software. No detection accuracy or false-alarm rate
-            has been measured yet.
+            <strong>Status:</strong> Experimental draft (0.1.0-draft.1).
+            Held-out evaluation on real-world data has not yet been run.
           </div>
           <div className="footer-meta">
             <span className="footer-legal">
