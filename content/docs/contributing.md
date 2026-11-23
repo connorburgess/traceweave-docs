@@ -15,6 +15,7 @@ The specification repository lives at [github.com/connorburgess/traceweave-spec]
 - **Numerical detection claims:** must include held-out evaluation and a stated false-alarm unit with denominators.
 - **Keep private material out of contributions:** never submit private keys, real private catalogues, unpublished suspect content, or identifying investigation records. Use redistributable synthetic fixtures only. Never label a similarity result as infringement.
 - **Independent implementations are welcome:** any CLI or agent workflow is an optional interface, not a core conformance requirement ([spec/conformance.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/conformance.md)).
+- **Contact:** [connor@seatbeltlabs.com](mailto:connor@seatbeltlabs.com).
 
 ## Checking the specification repository locally
 

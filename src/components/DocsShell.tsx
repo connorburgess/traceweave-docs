@@ -285,6 +285,8 @@ export function DocsShell({
               <Link href="/docs/contributing">Licences &amp; contributing</Link>
               <span aria-hidden="true">·</span>
               <Link href="/docs/sources">Source index</Link>
+              <span aria-hidden="true">·</span>
+              <a href="mailto:connor@seatbeltlabs.com">Contact</a>
             </span>
           </div>
         </div>

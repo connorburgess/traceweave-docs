@@ -16,6 +16,14 @@ const FORBIDDEN_PHRASES = [
 
 const ALLOWED_ENTITY_NAMES = ["Seatbelt Labs"];
 
+const ALLOWED_EMAILS = new Set(["connor@seatbeltlabs.com"]);
+
+const ALLOWED_EMAIL_FILES = new Set([
+  "content/docs/contributing.md",
+  "content/docs/governance.md",
+  "src/components/DocsShell.tsx",
+]);
+
 const ALLOWED_EXTERNAL_HOSTS = new Set([
   "github.com",
   "traceweave.org",
@@ -130,11 +138,18 @@ function main() {
         }
       }
       EMAIL_PATTERN.lastIndex = 0;
-      const emailMatch = EMAIL_PATTERN.exec(line);
-      if (emailMatch) {
-        errors.push(
-          `${rel(filePath)}:${idx + 1}: email address "${emailMatch[0]}" is not permitted`
-        );
+      let emailMatch;
+      while ((emailMatch = EMAIL_PATTERN.exec(line)) !== null) {
+        const email = emailMatch[0].toLowerCase();
+        if (!ALLOWED_EMAILS.has(email)) {
+          errors.push(
+            `${rel(filePath)}:${idx + 1}: email address "${emailMatch[0]}" is not permitted`
+          );
+        } else if (!ALLOWED_EMAIL_FILES.has(rel(filePath))) {
+          errors.push(
+            `${rel(filePath)}:${idx + 1}: permitted email "${emailMatch[0]}" may only appear in Contributing, Governance, and footer`
+          );
+        }
       }
       if (line.includes("©") && !line.includes("Unicode, Inc.")) {
         const snippet = lines.slice(idx, idx + 4).join(" ");
@@ -179,6 +194,20 @@ function main() {
 
     for (const { target, lineNum } of linkMatches) {
       if (target.startsWith("#") || target.includes("${")) continue;
+
+      if (target.startsWith("mailto:")) {
+        const addr = target.slice("mailto:".length).toLowerCase();
+        if (!ALLOWED_EMAILS.has(addr)) {
+          errors.push(
+            `${rel(filePath)}:${lineNum}: mailto target "${target}" is not in ALLOWED_EMAILS`
+          );
+        } else if (!ALLOWED_EMAIL_FILES.has(rel(filePath))) {
+          errors.push(
+            `${rel(filePath)}:${lineNum}: mailto link "${target}" is not permitted in this file`
+          );
+        }
+        continue;
+      }
 
       if (target.startsWith("http://") || target.startsWith("https://")) {
         // Malformed URL checks
