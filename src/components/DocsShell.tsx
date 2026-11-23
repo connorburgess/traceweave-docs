@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -12,6 +11,7 @@ import {
 import type { SearchEntry, TocHeading } from "@/lib/docs";
 import { ThemeToggle } from "./ThemeToggle";
 import { SearchModal } from "./SearchModal";
+import { SeatbeltLabsLink } from "./SeatbeltLabsLink";
 
 const SPEC_REPO_URL = "https://github.com/connorburgess/traceweave-spec";
 const PROJECT_HOME_URL = "https://traceweave.org";
@@ -237,40 +237,32 @@ export function DocsShell({
             evaluated on real-world data.
           </div>
           <div className="footer-meta">
-            <span className="footer-legal">
-              © 2026{" "}
-              <a
-                href="https://seatbeltlabs.com"
-                rel="noopener noreferrer"
-                className="brand-link"
-              >
-                <Image
-                  src="/brand/seatbelt-labs-mark.svg"
-                  alt=""
-                  width={20}
-                  height={20}
-                  className="brand-mark"
-                />
-                <span>Seatbelt Labs</span>
-              </a>{" "}
-              · Documentation prose:{" "}
-              <a
-                href="https://creativecommons.org/licenses/by/4.0/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                CC BY 4.0
-              </a>
-              . Site code &amp; examples:{" "}
-              <a
-                href="https://www.apache.org/licenses/LICENSE-2.0"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Apache-2.0
-              </a>
-              .
-            </span>
+            <div className="footer-legal">
+              <SeatbeltLabsLink />
+              <span className="footer-copyright">© 2026 Seatbelt Labs</span>
+              <span className="footer-sep" aria-hidden="true">
+                ·
+              </span>
+              <span className="footer-licences">
+                Documentation prose:{" "}
+                <a
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  CC BY 4.0
+                </a>
+                . Site code &amp; examples:{" "}
+                <a
+                  href="https://www.apache.org/licenses/LICENSE-2.0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Apache-2.0
+                </a>
+                .
+              </span>
+            </div>
             <span className="footer-links">
               <a
                 href={PROJECT_HOME_URL}

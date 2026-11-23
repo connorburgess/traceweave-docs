@@ -53,6 +53,30 @@ const REQUIRED_TEXT_CHECKS = [
     file: "README.md",
     phrases: [EXPECTED_OPENING],
   },
+  {
+    file: "src/components/SeatbeltLabsLink.tsx",
+    phrases: [
+      'href="https://seatbeltlabs.com"',
+      "width={28}",
+      "height={28}",
+      "SEATBELT LABS",
+    ],
+  },
+  {
+    file: "src/components/DocsShell.tsx",
+    phrases: ["<SeatbeltLabsLink", "© 2026 Seatbelt Labs"],
+  },
+  {
+    file: "src/app/docs/[[...slug]]/page.tsx",
+    phrases: ["<SeatbeltLabsLink"],
+  },
+  {
+    file: "src/app/globals.css",
+    phrases: [
+      ':root[data-theme="dark"] .brand-mark-frame',
+      "letter-spacing: 0.08em;",
+    ],
+  },
 ];
 
 const ALLOWED_ENTITY_NAMES = ["Seatbelt Labs"];

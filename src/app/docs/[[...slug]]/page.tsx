@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
 import { DocsShell } from "@/components/DocsShell";
+import { SeatbeltLabsLink } from "@/components/SeatbeltLabsLink";
 import { WinnowingDiagram } from "@/components/WinnowingDiagram";
 import { getAllDocSlugs, getDocBySlug, getSearchIndex } from "@/lib/docs";
 
@@ -72,22 +72,8 @@ export default async function DocCatchAllPage({ params }: PageProps) {
 
         {doc.showMaintainerLine && (
           <p className="maintainer-line">
-            Maintained by{" "}
-            <a
-              href="https://seatbeltlabs.com"
-              rel="noopener noreferrer"
-              className="brand-link"
-            >
-              <Image
-                src="/brand/seatbelt-labs-mark.svg"
-                alt=""
-                width={20}
-                height={20}
-                className="brand-mark"
-              />
-              <span>Seatbelt Labs</span>
-            </a>
-            .
+            <span>Maintained by</span>
+            <SeatbeltLabsLink />
           </p>
         )}
       </article>
