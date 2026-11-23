@@ -31,7 +31,11 @@ const REQUIRED_TEXT_CHECKS = [
   },
   {
     file: "src/app/layout.tsx",
-    phrases: [EXPECTED_OPENING, "openGraph:"],
+    phrases: [
+      EXPECTED_OPENING,
+      "openGraph:",
+      'import "@fontsource/archivo/800.css";',
+    ],
   },
   {
     file: "src/lib/docs.ts",

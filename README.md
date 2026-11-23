@@ -31,9 +31,15 @@ SPEC_CHECKOUT_DIR=/path/to/traceweave-spec npm run check:content
 ## Architecture
 
 - Static Next.js App Router site with TypeScript and build-time Markdown rendering.
-- Zero external runtime scripts, external fonts, cookies, analytics, databases, API routes, or environment secrets.
+- Zero external runtime scripts, external font requests, cookies, analytics, databases, API routes, or environment secrets.
 - Client-side search over a build-time static index.
 - Light and dark themes (light default, with a two-state toggle saved in `localStorage`).
+
+## Dependencies
+
+- `next` (16.4.6), `react` / `react-dom` (19.3.1), `gray-matter` (4.0.3), `marked` (18.2.1): MIT
+- `highlight.js` (11.12.0): BSD-3-Clause
+- `@fontsource/archivo` (5.3.0): OFL-1.1 (Archivo weight 800 only, self-hosted from this site's static assets for the Seatbelt Labs wordmark)
 
 ## Licensing
 

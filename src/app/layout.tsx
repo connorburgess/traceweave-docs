@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "@fontsource/archivo/800.css";
 import "./globals.css";
 
 const SITE_DESCRIPTION =
