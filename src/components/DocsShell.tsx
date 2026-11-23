@@ -243,7 +243,7 @@ export function DocsShell({
           </div>
           <div className="footer-meta">
             <span>
-              Documentation prose:{" "}
+              © 2026 Seatbelt Labs · Documentation prose:{" "}
               <a
                 href="https://creativecommons.org/licenses/by/4.0/"
                 target="_blank"

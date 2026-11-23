@@ -14,6 +14,10 @@ const FORBIDDEN_PHRASES = [
   ["military", "grade"].join("-"),
 ];
 
+const ALLOWED_ENTITY_NAMES = ["Seatbelt Labs"];
+
+const EMAIL_PATTERN = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
+
 const HOME_PATH_PATTERNS = [
   /(?<![A-Za-z0-9_])\/(?:Users|home)\/[A-Za-z0-9._-]+\//g,
   /[A-Za-z]:\\Users\\[A-Za-z0-9._-]+\\/g,
@@ -113,6 +117,23 @@ function main() {
         if (match) {
           errors.push(
             `${rel(filePath)}:${idx + 1}: absolute home-directory path "${match[0]}"`
+          );
+        }
+      }
+      EMAIL_PATTERN.lastIndex = 0;
+      const emailMatch = EMAIL_PATTERN.exec(line);
+      if (emailMatch) {
+        errors.push(
+          `${rel(filePath)}:${idx + 1}: email address "${emailMatch[0]}" is not permitted`
+        );
+      }
+      if (line.includes("©") && !line.includes("Unicode, Inc.")) {
+        const hasAllowed = ALLOWED_ENTITY_NAMES.some((name) =>
+          line.includes(name)
+        );
+        if (!hasAllowed) {
+          errors.push(
+            `${rel(filePath)}:${idx + 1}: copyright notice names an entity outside ALLOWED_ENTITY_NAMES`
           );
         }
       }
