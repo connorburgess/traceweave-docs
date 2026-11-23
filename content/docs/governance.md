@@ -12,7 +12,7 @@ Traceweave is an **open, non-commercial, independent specification**. It has no 
 
 Project decisions are tracked publicly in the specification repository through two mechanisms in [ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md):
 
-1. **The roadmap gate table:** Every milestone (`M0`–`M5`) and later profile track (`TS`, `IMGF`, `IMG`, `TXT`, `BIN`, `RES`, `C2PA`, `SK`, `STRUCT`, `KEYED`, `EXT`, `RC`) is broken into verifiable gates with an explicit ID, type, owner (**S** = specification repository, **I** = implementation repository), and status:
+1. **The roadmap gate table:** Every milestone (`M0`–`M5`) and later profile track (`TS`, `PY`, `IMGF`, `IMG`, `TXT`, `BIN`, `RES`, `C2PA`, `SK`, `STRUCT`, `KEYED`, `WEB`, `EXT`, `RC`) is broken into verifiable gates with an explicit ID, type, owner (**S** = specification repository, **I** = implementation repository), and status:
    - **E (engineering):** closes only when **met** with committed evidence that someone who did not do the work can recheck from a clean clone.
    - **R (research question):** closes when **met** or **negative-result**. A negative result is a valid, recorded answer.
    - **O (owner decision):** closes only when an explicit decision record is committed.

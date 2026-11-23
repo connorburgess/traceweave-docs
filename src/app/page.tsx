@@ -61,9 +61,11 @@ export default function HomePage() {
         </p>
         <p className="home-status-sources">
           See the{" "}
-          <Link href="/docs/roadmap">roadmap and gate counts</Link> (14 of 47
+          <Link href="/docs/roadmap">roadmap and gate counts</Link> (19 of 47
           core gates met; 8 of 55 later-profile gates met; Python{" "}
-          <code>py-tokens</code> draft-1 frozen for stage 1). Sources:{" "}
+          <code>py-tokens</code>, TypeScript <code>ts-tokens</code>, and plain
+          text <code>text-plain</code> frozen as specified, not yet
+          implemented). Sources:{" "}
           <a
             href={`${SPEC_BASE}/README.md`}
             target="_blank"

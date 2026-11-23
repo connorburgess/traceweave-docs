@@ -31,7 +31,7 @@ const REQUIRED_TEXT_CHECKS = [
       EXPECTED_OPENING,
       EXPECTED_FOLLOW,
       EXPECTED_STATUS,
-      "14 of 47 core gates met; 8 of 55 later-profile gates met",
+      "19 of 47 core gates met; 8 of 55 later-profile gates met",
     ],
   },
   {
@@ -66,7 +66,7 @@ const REQUIRED_TEXT_CHECKS = [
   },
   {
     file: "content/docs/roadmap.md",
-    phrases: ["14", "33", "55", "47", "m3-eval-draft-9", "py-tokens"],
+    phrases: ["19", "28", "55", "47", "m3-eval-draft-10", "py-tokens"],
   },
   {
     file: "content/docs/evidence-and-provenance.md",
@@ -74,7 +74,7 @@ const REQUIRED_TEXT_CHECKS = [
   },
   {
     file: "content/docs/research/evaluation-protocol.md",
-    phrases: ["m3-eval-draft-9"],
+    phrases: ["m3-eval-draft-10"],
   },
   {
     file: "content/docs/research/image-mark-study.md",
