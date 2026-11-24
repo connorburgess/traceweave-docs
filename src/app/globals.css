@@ -816,19 +816,20 @@ input:focus-visible,
   margin-bottom: 32px;
 }
 
-/* Subtle archival backdrop on the docs landing page only */
+/* Subtle archival backdrop on the docs landing page only, aligned to the content column */
 .home-hero--with-backdrop {
   position: relative;
-  overflow: hidden;
-  margin: -32px -44px 32px;
-  padding: 32px 332px 32px 44px;
+  margin: 0 0 32px;
+  padding: 0 0 28px;
   border-bottom: 1px solid var(--tw-border);
-  border-right: 1px solid var(--tw-border);
 }
 
 .home-hero-backdrop {
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 28px;
+  width: 300px;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
@@ -849,12 +850,29 @@ input:focus-visible,
   object-position: right center;
 }
 
+/* Blend the backdrop smoothly into the page paper surface with no hard rectangle seam */
 .hero-backdrop-picture--light {
   display: block;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, transparent 46%, rgba(0, 0, 0, 0.35) 62%, black 78%, black 100%),
+    linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0%, transparent 46%, rgba(0, 0, 0, 0.35) 62%, black 78%, black 100%),
+    linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-composite: intersect;
 }
 
 .hero-backdrop-picture--dark {
   display: none;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 24%, black 52%, black 100%),
+    linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 24%, black 52%, black 100%),
+    linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+  mask-composite: intersect;
 }
 
 :root[data-theme="dark"] .hero-backdrop-picture--light {
@@ -868,6 +886,7 @@ input:focus-visible,
 .home-hero-content {
   position: relative;
   z-index: 1;
+  max-width: 536px;
 }
 
 /* Clean optional media slot layout ready for future assets/imagery/ additions */
@@ -1483,12 +1502,6 @@ input:focus-visible,
   display: none;
 }
 
-@media (max-width: 1264px) {
-  .home-hero--with-backdrop {
-    border-right: 0;
-  }
-}
-
 @media (max-width: 1120px) {
   .docs-grid {
     grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
@@ -1507,8 +1520,17 @@ input:focus-visible,
   }
 
   .home-hero--with-backdrop {
-    margin: -28px -32px 28px;
-    padding: 28px 268px 28px 32px;
+    margin: 0 0 28px;
+    padding: 0 0 24px;
+  }
+
+  .home-hero-backdrop {
+    bottom: 24px;
+    width: 216px;
+  }
+
+  .home-hero-content {
+    max-width: 428px;
   }
 
   .home-hero--with-media {
@@ -1567,7 +1589,10 @@ input:focus-visible,
     margin: 0 0 32px;
     padding: 0;
     border-bottom: 0;
-    border-right: 0;
+  }
+
+  .home-hero-content {
+    max-width: none;
   }
 
   .home-hero-backdrop {
