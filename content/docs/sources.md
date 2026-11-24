@@ -12,7 +12,7 @@ Every factual statement, number, gate count, test-vector example, and research s
 | File | Role on this site |
 | --- | --- |
 | [README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/README.md) | Experimental status (`0.1.0-draft.1`), three separated questions, validation commands, scope |
-| [ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md) | Gate definitions, exact progress counts (24/47 core, 8/55 later), M0–M5 & later-profile gate tables (`PY`, `WEB`, `SK.3`–`SK.5`), 2026-11-23/24 decisions, implementation track status (`12cf016`) |
+| [ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md) | Gate definitions, exact progress counts (24/47 core, 10/55 later), M0–M5 & later-profile gate tables (`TS.3`, `TXT.3`, `PY`, `WEB`, `SK.3`–`SK.5`), 2026-11-23/24/25 decisions, implementation track status (`12cf016`, `8011b6d`) |
 | [CONTRIBUTING.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/CONTRIBUTING.md) | Contribution rules, CI workflow scope, and validation boundaries |
 | [SECURITY.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/SECURITY.md) | Private-evidence boundaries, hostile-input parsing rules, disclosure guidance |
 | [LICENSE.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/LICENSE.md) | CC BY 4.0 / Apache-2.0 / Unicode License v3 split and attribution wording |

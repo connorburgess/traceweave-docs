@@ -100,10 +100,10 @@ export default function HomePage() {
         <p className="home-status-sources">
           See the{" "}
           <Link href="/docs/roadmap">roadmap and gate counts</Link> (24 of 47
-          core gates met; 8 of 55 later-profile gates met; Python{" "}
-          <code>py-tokens</code>, TypeScript <code>ts-tokens</code>, and plain
-          text <code>text-plain</code> frozen as specified, not yet
-          implemented). Sources:{" "}
+          core gates met; 10 of 55 later-profile gates met; TypeScript{" "}
+          <code>ts-tokens</code> and plain text <code>text-plain</code>{" "}
+          implemented in Rust and Go; Python <code>py-tokens</code> frozen as
+          specified, not yet implemented). Sources:{" "}
           <a
             href={`${SPEC_BASE}/README.md`}
             target="_blank"

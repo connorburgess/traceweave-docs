@@ -1,6 +1,6 @@
 {
   "branch": "roadmap-v2",
-  "commit": "0ca30917547091a4cd21bda7a306844a31aeda9e",
+  "commit": "ca1347bdfd0122ba34e4dfcc79e77860cc54e7bd",
   "files": [
     ".github/pull_request_template.md",
     ".github/workflows/validate.yml",

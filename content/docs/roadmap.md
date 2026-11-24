@@ -2,7 +2,7 @@
 title: Roadmap and status
 description: Gate-by-gate progress counts from ROADMAP.md (version 2), implementation track status, and owner decisions.
 section: Project
-status: Draft 0.1.0-draft.1 · Active research roadmap v2 (updated 2026-11-24)
+status: Draft 0.1.0-draft.1 · Active research roadmap v2 (updated 2026-11-25)
 ---
 
 Traceweave tracks progress through verifiable **gates** rather than dates or milestone narratives ([ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)). No release dates and no detection accuracy promises are made.
@@ -19,14 +19,14 @@ Checkpoints, evidence reviews, and dry runs are progress records and do not clos
 
 ## Progress count summary
 
-Counts from [ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md#progress-count) (published commit `0ca3091`, 2026-11-24):
+Counts from [ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md#progress-count) (published commit `ca1347b`, 2026-11-25):
 
 | Gate group | Total | Met | Negative-result | Open |
 | --- | --- | --- | --- | --- |
 | **Core M0–M5** | 47 | **24** (`M0.1`–`M0.4`, `M1.1`–`M1.6`, `M2.1`–`M2.11`, `M3.0`, `M4.1`, `M4.2`) | 0 | **23** |
-| **Later profiles, EXT and RC** | 55 | **8** (`IMGF.2`–`IMGF.4`, `IMG.0`–`IMG.4`) | 0 | **47** |
+| **Later profiles, EXT and RC** | 55 | **10** (`TS.3`, `IMGF.2`–`IMGF.4`, `IMG.0`–`IMG.4`, `TXT.3`) | 0 | **45** |
 
-The synthetic carrier records (`SYN.1`–`SYN.5`) are research records and are not counted in the 47 core gates. All **M1 (`M1.1`–`M1.6`)** and **M2 (`M2.1`–`M2.11`)** core gates are now met (`M1.4` with the A16 caveat on test-only exclusion positives). Among the 47 open later-profile gates, Python (`py-tokens` draft-1), TypeScript (`ts-tokens` draft-2), and plain text (`text-plain` draft-1) are frozen as specified, not yet implemented (`PY.1`–`PY.4`, `TS.1`–`TS.4`, `TXT.1`–`TXT.4`), and `WEB.0`–`WEB.6` and `SK.3`–`SK.5` are planned.
+The synthetic carrier records (`SYN.1`–`SYN.5`) are research records and are not counted in the 47 core gates. All **M1 (`M1.1`–`M1.6`)** and **M2 (`M2.1`–`M2.11`)** core gates are now met (`M1.4` with the A16 caveat on test-only exclusion positives). Among the later profiles, TypeScript (`ts-tokens`, `TS.3`) and plain text (`text-plain`, `TXT.3`) are now met across both Rust and Go implementations (`8011b6d`), Python (`py-tokens` draft-1, `PY.1`–`PY.4`) remains frozen as specified and not yet implemented, and `WEB.0`–`WEB.6` and `SK.3`–`SK.5` are planned.
 
 ## Core milestones (M0–M5)
 
@@ -44,11 +44,11 @@ The synthetic carrier records (`SYN.1`–`SYN.5`) are research records and are n
 
 | Track | Scope | Met | Open | Status summary |
 | --- | --- | --- | --- | --- |
-| **TS** (TypeScript/JS) | Profile (`TS.1`), hand vectors (`TS.2`), two implementations (`TS.3`), own M3 split (`TS.4`) | 0/4 | `TS.1`–`TS.4` | `ts-tokens` (`draft-2`) profile & vectors frozen for stage-1 implementation (specified, not yet implemented); `tsx-tokens` deferred. Implementation gates open. |
+| **TS** (TypeScript/JS) | Profile (`TS.1`), hand vectors (`TS.2`), two implementations (`TS.3`), own M3 split (`TS.4`) | `TS.3` (1/4) | `TS.1`, `TS.2`, `TS.4` | `TS.3` **met** at implementation `8011b6d` (`docs/reviews/text-ts-review.md`): independent Rust + Go implementations match `ts-tokens` 132/132 vendored vectors and 3,684 integrator + 768 reviewer + 102 adversarial differential cases (0 divergences); `tsx-tokens` rejected as `unsupported-config`. |
 | **PY** (Python) | Profile (`PY.1`), hand vectors (`PY.2`), two implementations (`PY.3`), own M3 split (`PY.4`) | 0/4 | `PY.1`–`PY.4` | `py-tokens` (`draft-1`) frozen for stage-1 implementation (`58c25a9`) after clean-room review (`0db8b44`) and registered in `spec/catalogue-report.md` (A13/A14); 107 vectors + 1,847/1,847 CPython 3.14.6 stdlib agreement. Specified, not yet implemented. |
 | **IMGF** (Image fingerprints) | Profile (`IMGF.1`), PDQ/ISCC reference vectors (`IMGF.2`), frozen protocol (`IMGF.3`), 200-image synthetic check (`IMGF.4`), C++ comparison (`IMGF.5`), real-image false-match study (`IMGF.6`) | `IMGF.2`–`IMGF.4` (3/6) | `IMGF.1`, `IMGF.5`, `IMGF.6` | Synthetic contract check `e-img-f-2` completed and independently rechecked. `IMGF.6` (real images) is owner-gated. |
 | **IMG** (Image marks) | UC-7 (`IMG.0`), pins/licences (`IMG.1`), offline run (`IMG.2`), frozen protocol (`IMG.3`), measured run (`IMG.4`), shared record (`IMG.5`) | `IMG.0`–`IMG.4` (5/6) | `IMG.5` | Measured synthetic run `e-img-m-2` committed and independently rechecked (0 mismatches in 7,500 queries): 100/100 clean matches for TrustMark-Q & PixelSeal, but 100/100 keyless re-embed and 82/90 residual transplant accepted — image marks serve as a finding aid, not evidence of origin. `IMG.5` (container vs profile record) open; real images and GPU spend remain owner-gated. |
-| **TXT** (Text/prose) | UC-8 (`TXT.0`), profile (`TXT.1`), vectors (`TXT.2`), two implementations (`TXT.3`), repo-prose stage 1 (`TXT.4`), PAN-PC-10 (`TXT.5`–`TXT.6`), limits (`TXT.7`), text-mark negative result (`TXT.8`) | 0/9 | `TXT.0`–`TXT.8` | `text-plain` (`draft-1`) frozen for stage-1 implementation (specified, not yet implemented); `text-markdown` draft. `TXT.0`, `TXT.5` (PAN-PC-10 download), and `TXT.8` (non-author confirmation / any text-mark experiment) remain open. |
+| **TXT** (Text/prose) | UC-8 (`TXT.0`), profile (`TXT.1`), vectors (`TXT.2`), two implementations (`TXT.3`), repo-prose stage 1 (`TXT.4`), PAN-PC-10 (`TXT.5`–`TXT.6`), limits (`TXT.7`), text-mark negative result (`TXT.8`) | `TXT.3` (1/9) | `TXT.0`–`TXT.2`, `TXT.4`–`TXT.8` | `TXT.3` **met** at implementation `8011b6d` (`docs/reviews/text-ts-review.md`): independent Rust + Go implementations match `text-plain` 154/154 vendored vectors and 3,684 integrator + 768 reviewer + 102 adversarial differential cases (0 divergences); `text-markdown` rejected as `unsupported-config`. `TXT.0`, `TXT.5` (PAN-PC-10 download), and `TXT.8` remain open. |
 | **BIN** (Binaries) | Primary-source review (`BIN.1`), scope decision (`BIN.2`) | 0/2 | `BIN.1`–`BIN.2` | Deferred after `M3.4`. |
 | **RES** (Resolver threat model) | Threat model (`RES.1`), leakage study (`RES.2`), independent review (`RES.3`) | 0/3 | `RES.1`–`RES.3` | Deferred after `M3.4`. |
 | **C2PA** | Version-pinned mapping (`C2PA.1`), round-trip fixtures with C2PA tool (`C2PA.2`), no-claim check (`C2PA.3`) | 0/3 | `C2PA.1`–`C2PA.3` | In progress by 2026-11-23 override; draft C2PA 2.5 mapping updated to use the owned `org.traceweave` namespace; no C2PA tool run yet. |
@@ -59,7 +59,7 @@ The synthetic carrier records (`SYN.1`–`SYN.5`) are research records and are n
 
 ## Implementation track status (Rust + Go)
 
-Two independent implementations — a Rust primary CLI and a second Go implementation, both with hand-written lexers — live in a separate private implementation repository (`traceweave`, per [docs/implementation-repo-plan.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/docs/implementation-repo-plan.md)) as evidence that the specification can be implemented independently ([ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)). `main` is at `12cf016` (`core-gates-integration` merge, 2026-11-24), pinned to public spec `6437c26` and confirmed by the round-three spot-check (`docs/reviews/core-gates-review.md` @ `12cf016`). Earlier CI passed on `af3af2b` (2026-11-23) with jobs `hygiene`, `check (ubuntu-latest)` (first passing Linux run), and `check (macos-latest)`:
+Two independent implementations — a Rust primary CLI and a second Go implementation, both with hand-written lexers — live in a separate private implementation repository (`traceweave`, per [docs/implementation-repo-plan.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/docs/implementation-repo-plan.md)) as evidence that the specification can be implemented independently ([ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md)). Core M1/M2 implementation gates were confirmed at `12cf016` (`core-gates-integration` merge, pinned to public spec `6437c26`, `docs/reviews/core-gates-review.md`), and later-profile gates `TS.3` (`ts-tokens`) and `TXT.3` (`text-plain`) were confirmed at `8011b6d` (`docs/reviews/text-ts-review.md`). Earlier CI passed on `af3af2b` (2026-11-23) with jobs `hygiene`, `check (ubuntu-latest)` (first passing Linux run), and `check (macos-latest)`:
 
 - **I0 (Scaffold & pin):** **exit met.** `fmt`, `clippy`, tests, `vet`, `go test`, strict pin check (43/43), and conformance pass in both languages.
 - **I1 (Extraction):** **exit met.** Both extractors reproduce every vendored extraction vector, `check-vector-precedence` passes, and differentials agree 100% on two seeds (14.3M cases each). Gates `M1.4` (with A16 caveat on test-only exclusion positives) and `M1.6` are **met** at `12cf016` (pinned to `6437c26`).
