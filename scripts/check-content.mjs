@@ -31,7 +31,7 @@ const REQUIRED_TEXT_CHECKS = [
       EXPECTED_OPENING,
       EXPECTED_FOLLOW,
       EXPECTED_STATUS,
-      "19 of 47 core gates met; 8 of 55 later-profile gates met",
+      "24 of 47 core gates met; 8 of 55 later-profile gates met",
     ],
   },
   {
@@ -66,11 +66,11 @@ const REQUIRED_TEXT_CHECKS = [
   },
   {
     file: "content/docs/roadmap.md",
-    phrases: ["19", "28", "55", "47", "m3-eval-draft-10", "py-tokens"],
+    phrases: ["24", "23", "55", "47", "m3-eval-draft-10", "py-tokens"],
   },
   {
     file: "content/docs/evidence-and-provenance.md",
-    phrases: ["traceweave-registration-draft-2", "OpenTimestamps"],
+    phrases: ["traceweave-registration-draft-5", "OpenTimestamps", "tw1-"],
   },
   {
     file: "content/docs/research/evaluation-protocol.md",
