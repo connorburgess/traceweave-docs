@@ -816,6 +816,60 @@ input:focus-visible,
   margin-bottom: 32px;
 }
 
+/* Subtle archival backdrop on the docs landing page only */
+.home-hero--with-backdrop {
+  position: relative;
+  overflow: hidden;
+  margin: -32px -44px 32px;
+  padding: 32px 332px 32px 44px;
+  border-bottom: 1px solid var(--tw-border);
+  border-right: 1px solid var(--tw-border);
+}
+
+.home-hero-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-backdrop-picture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-backdrop-picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+}
+
+.hero-backdrop-picture--light {
+  display: block;
+}
+
+.hero-backdrop-picture--dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .hero-backdrop-picture--light {
+  display: none;
+}
+
+:root[data-theme="dark"] .hero-backdrop-picture--dark {
+  display: block;
+}
+
+.home-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
 /* Clean optional media slot layout ready for future assets/imagery/ additions */
 .home-hero--with-media {
   display: grid;
@@ -1429,6 +1483,12 @@ input:focus-visible,
   display: none;
 }
 
+@media (max-width: 1264px) {
+  .home-hero--with-backdrop {
+    border-right: 0;
+  }
+}
+
 @media (max-width: 1120px) {
   .docs-grid {
     grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
@@ -1444,6 +1504,11 @@ input:focus-visible,
 
   .main-column {
     padding: 28px 32px 56px;
+  }
+
+  .home-hero--with-backdrop {
+    margin: -28px -32px 28px;
+    padding: 28px 268px 28px 32px;
   }
 
   .home-hero--with-media {
@@ -1496,6 +1561,17 @@ input:focus-visible,
 
   .main-column {
     padding: 24px 20px 48px;
+  }
+
+  .home-hero--with-backdrop {
+    margin: 0 0 32px;
+    padding: 0;
+    border-bottom: 0;
+    border-right: 0;
+  }
+
+  .home-hero-backdrop {
+    display: none;
   }
 
   .two-col-grid,

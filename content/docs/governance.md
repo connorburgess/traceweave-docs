@@ -34,3 +34,5 @@ Changes are accepted one reviewable unit per decision or capability, backed by a
 - **Security and private-evidence reports:** Follow [SECURITY.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/SECURITY.md). Never post private keys, real private catalogues, nonces, unpublished suspect content, or identifying investigation records in public issues or pull requests. For confidential vulnerabilities, use GitHub private vulnerability reporting on the specification repository if enabled; if unavailable, ask the maintainer for a private channel without posting exploit details or sensitive material.
 - **Licensing:** Contributions are made under the repository's dual-licence split: documentation prose under CC BY 4.0 and code, schemas, test vectors, examples, and configuration under Apache-2.0 ([Contributing & licences](/docs/contributing)).
 - **Contact:** [connor@seatbeltlabs.com](mailto:connor@seatbeltlabs.com).
+
+Illustrations on this site are generated images, not photographs or results.

@@ -18,29 +18,67 @@ export default function HomePage() {
 
   return (
     <DocsShell searchIndex={searchIndex} isHome>
-      <section className="home-hero">
-        <h1>Traceweave</h1>
-        <p className="home-lead">
-          Traceweave is an open specification for recognising your own work when
-          it turns up somewhere else, and for producing evidence of the match
-          that anyone can re-run and check.
-        </p>
-        <p className="home-lead-follow">
-          It is designed to cover any kind of work: source code, writing, images
-          and audio. One shared evidence format sits underneath, with a profile
-          for each medium. Your content never leaves your machine; only
-          fingerprints are compared.
-        </p>
-        <div className="home-actions">
-          <Link href="/docs/concepts" className="btn-primary">
-            Start here: concepts
-          </Link>
-          <Link href="/docs/how-it-works" className="btn-secondary">
-            How it works (worked example)
-          </Link>
-          <Link href="/docs/limits-and-threat-model" className="btn-secondary">
-            Limits &amp; threat model
-          </Link>
+      <section className="home-hero home-hero--with-backdrop">
+        <div className="home-hero-backdrop" aria-hidden="true">
+          <picture className="hero-backdrop-picture hero-backdrop-picture--light">
+            <source
+              type="image/webp"
+              srcSet="/imagery/docs-header-light-800.webp 800w, /imagery/docs-header-light-1600.webp 1600w"
+              sizes="(max-width: 1120px) 760px, 980px"
+            />
+            <img
+              src="/imagery/docs-header-light-1600.jpg"
+              srcSet="/imagery/docs-header-light-800.jpg 800w, /imagery/docs-header-light-1600.jpg 1600w"
+              sizes="(max-width: 1120px) 760px, 980px"
+              width={1600}
+              height={894}
+              alt=""
+              decoding="async"
+              fetchPriority="high"
+            />
+          </picture>
+          <picture className="hero-backdrop-picture hero-backdrop-picture--dark">
+            <source
+              type="image/webp"
+              srcSet="/imagery/docs-header-dark-800.webp 800w, /imagery/docs-header-dark-1600.webp 1600w"
+              sizes="(max-width: 1120px) 760px, 980px"
+            />
+            <img
+              src="/imagery/docs-header-dark-1600.jpg"
+              srcSet="/imagery/docs-header-dark-800.jpg 800w, /imagery/docs-header-dark-1600.jpg 1600w"
+              sizes="(max-width: 1120px) 760px, 980px"
+              width={1600}
+              height={894}
+              alt=""
+              decoding="async"
+              fetchPriority="high"
+            />
+          </picture>
+        </div>
+        <div className="home-hero-content">
+          <h1>Traceweave</h1>
+          <p className="home-lead">
+            Traceweave is an open specification for recognising your own work
+            when it turns up somewhere else, and for producing evidence of the
+            match that anyone can re-run and check.
+          </p>
+          <p className="home-lead-follow">
+            It is designed to cover any kind of work: source code, writing,
+            images and audio. One shared evidence format sits underneath, with a
+            profile for each medium. Your content never leaves your machine;
+            only fingerprints are compared.
+          </p>
+          <div className="home-actions">
+            <Link href="/docs/concepts" className="btn-primary">
+              Start here: concepts
+            </Link>
+            <Link href="/docs/how-it-works" className="btn-secondary">
+              How it works (worked example)
+            </Link>
+            <Link href="/docs/limits-and-threat-model" className="btn-secondary">
+              Limits &amp; threat model
+            </Link>
+          </div>
         </div>
       </section>
 
