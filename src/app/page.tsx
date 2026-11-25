@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRightIcon } from "@/components/ArrowUpRightIcon";
 import { DocsShell } from "@/components/DocsShell";
 import { FlowDiagram } from "@/components/FlowDiagram";
 import { getSearchIndex } from "@/lib/docs";
@@ -71,25 +70,16 @@ export default function HomePage() {
           </p>
           <div className="home-actions">
             <Link href="/docs/concepts" className="btn btn-primary">
-              <span className="btn-label">Start here: concepts</span>
-              <span className="btn-arrow" aria-hidden="true">
-                <ArrowUpRightIcon size={24} />
-              </span>
+              Start here: concepts
             </Link>
             <Link href="/docs/how-it-works" className="btn btn-secondary">
-              <span className="btn-label">How it works (worked example)</span>
-              <span className="btn-arrow" aria-hidden="true">
-                <ArrowUpRightIcon size={22} />
-              </span>
+              How it works (worked example)
             </Link>
             <Link
               href="/docs/limits-and-threat-model"
               className="btn btn-secondary"
             >
-              <span className="btn-label">Limits &amp; threat model</span>
-              <span className="btn-arrow" aria-hidden="true">
-                <ArrowUpRightIcon size={22} />
-              </span>
+              Limits &amp; threat model
             </Link>
           </div>
         </div>

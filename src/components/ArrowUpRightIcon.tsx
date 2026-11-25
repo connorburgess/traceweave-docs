@@ -4,13 +4,13 @@ interface ArrowUpRightIconProps {
 }
 
 export function ArrowUpRightIcon({
-  size = 24,
+  size = 14,
   className,
 }: ArrowUpRightIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 28 28"
+      viewBox="0 0 16 16"
       width={size}
       height={size}
       fill="none"
@@ -19,11 +19,11 @@ export function ArrowUpRightIcon({
       className={className}
     >
       <path
-        d="M9.05025 19.4497L18.9497 9.55025M10.8377 8.86279L18.9497 9.55025L19.6372 17.6623"
+        d="M4.5 11.5L11.5 4.5M6.5 4.5H11.5V9.5"
         stroke="currentColor"
         strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeLinecap="square"
+        strokeLinejoin="miter"
       />
     </svg>
   );

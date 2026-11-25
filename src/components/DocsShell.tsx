@@ -111,10 +111,8 @@ export function DocsShell({
               rel="noopener noreferrer"
               className="header-btn header-repo-link"
             >
-              <span className="header-btn-label">traceweave.org</span>
-              <span className="header-btn-arrow" aria-hidden="true">
-                <ArrowUpRightIcon size={16} />
-              </span>
+              <span>traceweave.org</span>
+              <ArrowUpRightIcon size={14} className="header-btn-icon" />
             </a>
 
             <a
@@ -123,10 +121,8 @@ export function DocsShell({
               rel="noopener noreferrer"
               className="header-btn header-repo-link"
             >
-              <span className="header-btn-label">Spec repo</span>
-              <span className="header-btn-arrow" aria-hidden="true">
-                <ArrowUpRightIcon size={16} />
-              </span>
+              <span>Spec repo</span>
+              <ArrowUpRightIcon size={14} className="header-btn-icon" />
             </a>
           </div>
         </div>
