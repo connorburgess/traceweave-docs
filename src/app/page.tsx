@@ -102,13 +102,14 @@ export default function HomePage() {
         </p>
         <p className="home-status-sources">
           See the{" "}
-          <Link href="/docs/roadmap">roadmap and gate counts</Link> (27 of 47
-          core gates met; 21 of 55 later-profile gates met, 2 negative-result{" "}
-          <code>TXT.4</code>/<code>TXT.8</code>, 32 open; TypeScript{" "}
-          <code>ts-tokens</code>, Python <code>py-tokens</code>, and plain text{" "}
-          <code>text-plain</code> implemented in Rust and Go; normative M4
-          registration <code>draft-5</code> and pure-Rust WASM{" "}
-          <code>WEB.1</code>–<code>WEB.2</code> verified). Sources:{" "}
+          <Link href="/docs/roadmap">roadmap and gate counts</Link> (28 of 47
+          core gates met, including all 6/6 M4 gates; 21 of 55 later-profile
+          gates met, 2 negative-result <code>TXT.4</code>/<code>TXT.8</code>, 32
+          open; TypeScript <code>ts-tokens</code>, Python{" "}
+          <code>py-tokens</code>, and plain text <code>text-plain</code>{" "}
+          implemented in Rust and Go; normative M4 registration{" "}
+          <code>draft-5</code> and pure-Rust WASM <code>WEB.1</code>–
+          <code>WEB.2</code> verified). Sources:{" "}
           <a
             href={`${SPEC_BASE}/README.md`}
             target="_blank"
