@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowUpRightIcon } from "@/components/ArrowUpRightIcon";
 import { DocsShell } from "@/components/DocsShell";
 import { FlowDiagram } from "@/components/FlowDiagram";
 import { getSearchIndex } from "@/lib/docs";
@@ -69,14 +70,26 @@ export default function HomePage() {
             only fingerprints are compared.
           </p>
           <div className="home-actions">
-            <Link href="/docs/concepts" className="btn-primary">
-              Start here: concepts
+            <Link href="/docs/concepts" className="btn btn-primary">
+              <span className="btn-label">Start here: concepts</span>
+              <span className="btn-arrow" aria-hidden="true">
+                <ArrowUpRightIcon size={24} />
+              </span>
             </Link>
-            <Link href="/docs/how-it-works" className="btn-secondary">
-              How it works (worked example)
+            <Link href="/docs/how-it-works" className="btn btn-secondary">
+              <span className="btn-label">How it works (worked example)</span>
+              <span className="btn-arrow" aria-hidden="true">
+                <ArrowUpRightIcon size={22} />
+              </span>
             </Link>
-            <Link href="/docs/limits-and-threat-model" className="btn-secondary">
-              Limits &amp; threat model
+            <Link
+              href="/docs/limits-and-threat-model"
+              className="btn btn-secondary"
+            >
+              <span className="btn-label">Limits &amp; threat model</span>
+              <span className="btn-arrow" aria-hidden="true">
+                <ArrowUpRightIcon size={22} />
+              </span>
             </Link>
           </div>
         </div>

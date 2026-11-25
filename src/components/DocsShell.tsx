@@ -13,6 +13,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { SearchModal } from "./SearchModal";
 import { SeatbeltLabsLink } from "./SeatbeltLabsLink";
 import { TraceweaveLockup } from "./TraceweaveLockup";
+import { ArrowUpRightIcon } from "./ArrowUpRightIcon";
 
 const SPEC_REPO_URL = "https://github.com/connorburgess/traceweave-spec";
 const PROJECT_HOME_URL = "https://traceweave.org";
@@ -110,7 +111,10 @@ export function DocsShell({
               rel="noopener noreferrer"
               className="header-btn header-repo-link"
             >
-              traceweave.org
+              <span className="header-btn-label">traceweave.org</span>
+              <span className="header-btn-arrow" aria-hidden="true">
+                <ArrowUpRightIcon size={16} />
+              </span>
             </a>
 
             <a
@@ -119,7 +123,10 @@ export function DocsShell({
               rel="noopener noreferrer"
               className="header-btn header-repo-link"
             >
-              Spec repo
+              <span className="header-btn-label">Spec repo</span>
+              <span className="header-btn-arrow" aria-hidden="true">
+                <ArrowUpRightIcon size={16} />
+              </span>
             </a>
           </div>
         </div>
