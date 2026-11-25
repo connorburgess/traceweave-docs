@@ -2,7 +2,7 @@
 title: Evidence and provenance
 description: What a Traceweave comparison report is, private catalogue commitments, signing interoperability status, and C2PA 2.5 mapping status.
 section: Specification
-status: Experimental draft (M4.1–M4.2 met; M4.3–M4.6 and C2PA.1–C2PA.3 open)
+status: Experimental draft (M4.1–M4.2 and C2PA.3 met; M4.3–M4.6 and C2PA.1–C2PA.2 open)
 ---
 
 Traceweave treats similarity evidence and cryptographic authentication as separate layers ([spec/core.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/core.md), [spec/attestations.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/attestations.md)). A comparison report records what two catalogues shared under a fixed configuration; cryptographic verification checks who signed a byte sequence and whether an artifact's exact digest matches.
@@ -81,9 +81,9 @@ Following the `e-img-m-2` finding that image watermarks act as a finding aid rat
 ## C2PA 2.5 mapping status
 
 > [!NOTE]
-> **Status:** The mapping in [research/drafts/c2pa-mapping.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/c2pa-mapping.md) is an unreviewed research draft (updated to use the owned `org.traceweave` namespace following registration of `traceweave.org` on 2026-11-23), and no C2PA compatibility is claimed. No C2PA tool (such as `c2pa-rs`) has been installed, built, or run, and no fixture has been serialized to CBOR or JUMBF or signed. Gates `C2PA.1`–`C2PA.3` remain open.
+> **Status:** `C2PA.3` (no-compatibility-claim check) is **met** (2026-11-25). The C2PA 2.5 mapping in [research/drafts/c2pa-mapping.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/c2pa-mapping.md) (`org.traceweave.*` namespace, including §1.8 `org.traceweave.registration-link` linking a sidecar manifest to an M4 `tw1-` + `statementSha256` registration) is audited and reviewed ([media-c2pa-av-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/media-c2pa-av-review.md)), awaiting owner decision D1 (`C2PA.1` open). No C2PA compatibility is claimed, no C2PA tool (such as `c2pa-rs`) has been installed, built, or run, and no fixture has been serialized to CBOR or JUMBF or signed (`C2PA.2` owner-blocked on D7/D10).
 
-The draft maps Traceweave records against C2PA Technical Specification 2.5 and the Soft Binding API 2.5, with 6 illustrative JSON fixtures and 18 negative fixtures checked by a local script ([research/drafts/c2pa-fixtures/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/c2pa-fixtures/README.md)). Key findings:
+The draft maps Traceweave records against C2PA Technical Specification 2.5 and the Soft Binding API 2.5, with **7 positive JSON fixtures** (`f1`–`f7`, including `f7` sidecar `org.traceweave.registration-link`) and **22 negative fixtures** checked by `tools/validate.py` via `check_fixtures.py` ([research/drafts/c2pa-fixtures/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/c2pa-fixtures/README.md)). Key findings:
 
 - **Fundamental semantic gap:** C2PA soft bindings ask *"which manifest belongs to this single asset?"* and return a manifest ID (optionally with an uncalibrated 0–100 `similarityScore`). Traceweave asks *"how much of catalogue B overlaps catalogue A under a fixed configuration?"* and returns closed outcomes, minimum-evidence regions, and raw-count fractions without a score field.
 - **Soft-binding registry limits:** Traceweave cannot reuse the third-party PDQ entry (`com.originalpictures.pdq.1`, id 74) because it encodes a different implementation and threshold. Its current 64-bit ISCC Image-Code output does not satisfy draft IEP-0020's requirements for `io.iscc.v0` (256-bit units plus Data-Code and Instance-Code). No registered soft-binding algorithm exists for Traceweave's token-winnowing profiles. TrustMark variants `Q/C/P/F` are registered (`com.adobe.trustmark.*`), though registration is not evaluation.

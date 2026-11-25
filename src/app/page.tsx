@@ -103,8 +103,8 @@ export default function HomePage() {
         <p className="home-status-sources">
           See the{" "}
           <Link href="/docs/roadmap">roadmap and gate counts</Link> (24 of 47
-          core gates met; 11 of 55 later-profile gates met, 1 negative-result{" "}
-          <code>TXT.4</code>, 43 open; TypeScript <code>ts-tokens</code>, Python{" "}
+          core gates met; 12 of 55 later-profile gates met, 1 negative-result{" "}
+          <code>TXT.4</code>, 42 open; TypeScript <code>ts-tokens</code>, Python{" "}
           <code>py-tokens</code>, and plain text <code>text-plain</code>{" "}
           implemented in Rust and Go; offline-first M4 registration{" "}
           <code>draft-5</code> implemented in Rust and Go). Sources:{" "}
