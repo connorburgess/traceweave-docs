@@ -59,7 +59,7 @@ Across source code, existing prose, and still images, every reviewed or tested e
 
 - **Catalogues are private:** unkeyed 64-bit hashes and byte spans let a catalogue holder test guessed snippets, confirm whole files via `sha256`, and inspect file structure ([spec/catalogue-report.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/catalogue-report.md)). Exchanging catalogues discloses these capabilities to the counterparty.
 - **Reports are private by default:** a report exposes artifact IDs, whole-file `sha256` digests, byte spans, and overlap counts.
-- **No remote resolver yet:** query leakage, enumeration, and membership disclosure for any future remote resolver are unstudied (open gates `RES.1`–`RES.3`).
+- **No remote resolver required (`RES.1` met):** query leakage, enumeration, catalogue inference, membership disclosure, and abuse for any optional future remote resolver are documented in [resolver-threat-model.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/resolver-threat-model.md) (independent review & confirmation pass in [resolver-threat-model-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/resolver-threat-model-review.md)); public registration and remote resolvers stay strictly optional, while synthetic leakage measurement (`RES.2`) and closing review (`RES.3`) remain open.
 
 ## Scope boundaries
 

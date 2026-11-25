@@ -1,6 +1,6 @@
 {
   "branch": "roadmap-v2",
-  "commit": "aae74d66f203d25d56566210338bb2fe4bb0babb",
+  "commit": "6add4cef6a5d37a16f3f048580c272c8f2eb188c",
   "files": [
     ".github/pull_request_template.md",
     ".github/workflows/validate.yml",
@@ -443,6 +443,7 @@
     "research/drafts/registration-fixtures/realformat.py",
     "research/drafts/registration-record-next.md",
     "research/drafts/registration-record.md",
+    "research/drafts/resolver-threat-model.md",
     "research/drafts/timestamp-adapter-decision.md",
     "research/drafts/trust-policy.md",
     "research/experiment-checkpoint.md",
@@ -625,6 +626,7 @@
     "research/reviews/registration-record-draft-2-review.md",
     "research/reviews/registration-record-review.md",
     "research/reviews/research-06-08-checkpoint-review.md",
+    "research/reviews/resolver-threat-model-review.md",
     "research/reviews/roadmap-v2-review.md",
     "research/reviews/text-stage1-protocol-review.md",
     "research/reviews/txt7-limits-recount.md",
