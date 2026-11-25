@@ -2,7 +2,7 @@
 title: Evidence and provenance
 description: What a Traceweave comparison report is, private catalogue commitments, signing interoperability status, and C2PA 2.5 mapping status.
 section: Specification
-status: Experimental draft (M4.1–M4.2 and C2PA.3 met; M4.3–M4.6 and C2PA.1–C2PA.2 open)
+status: Experimental draft (M4.1–M4.2, M4.5 and C2PA.3 met; M4.3–M4.4, M4.6 and C2PA.1–C2PA.2 open)
 ---
 
 Traceweave treats similarity evidence and cryptographic authentication as separate layers ([spec/core.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/core.md), [spec/attestations.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/attestations.md)). A comparison report records what two catalogues shared under a fixed configuration; cryptographic verification checks who signed a byte sequence and whether an artifact's exact digest matches.
@@ -43,7 +43,7 @@ commitment = SHA256(D || R || L || C)   (64 lowercase hex characters)
 
 - **Opening is all-or-nothing:** opening discloses the entire catalogue `C` and nonce `R`. Selective disclosure is not specified in this draft.
 - **Exact bytes matter:** re-serializing a catalogue changes its bytes and normally breaks the commitment.
-- **No independent security review yet:** the commitment design has not undergone its non-author review (gate `M4.6`, open).
+- **Commitment/disclosure review (`M4.6`):** a commitment/disclosure review is filed in [docs/reviews/commitment-disclosure-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/docs/reviews/commitment-disclosure-review.md), with blocking finding `CD-B2` (catalogue opening-nonce validation) fixed and confirmed; gate `M4.6` remains open pending named external non-author closure.
 - **What is verified today:** independent Go (`crypto/sha256`), Rust (`sha2 0.10.9`), and Python implementations all reproduce the synthetic commitment vector `f4df04ab00454b3a4b1bc25d80009a8a3e82f9d5d4f4eeed08c6cbbd9891c4a9` in [test-vectors/commitment.json](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/test-vectors/commitment.json) and reject altered openings or invalid nonce lengths across 50 native outcomes (gate [M4.2](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md), **met**; [research/lanes/signing-policy-results.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/lanes/signing-policy-results.md)).
 
 ## Signing and DSSE / in-toto status
@@ -54,7 +54,7 @@ Traceweave specifies a restricted in-toto Statement v1 adapter (`_type: https://
 PAE(type, body) = "DSSEv1" + SP + LEN(type) + SP + type + SP + LEN(body) + SP + body
 ```
 
-**Current status: offline-first registration (`traceweave-registration-draft-5` + §4.7 + §9.1 `tw1-`, `REG.1`/`REG.2`) is implemented and verified in both independent Rust and Go CLIs (`a6066d3`, 0 divergences, 0 external dependencies), while core M4 release gates `M4.3`–`M4.6` remain open until vectors promote to `test-vectors/` and reviews close (no public release or hosted service yet).**
+**Current status: `M4.1`, `M4.2`, and `M4.5` are met, and offline-first registration (`traceweave-registration-draft-5` + §4.7 + §9.1 `tw1-`, `REG.1`/`REG.2`) is implemented and verified in both independent Rust and Go CLIs (`a6066d3`, 0 divergences, 0 external dependencies), while core M4 release gates `M4.3`–`M4.4` and `M4.6` remain open until vectors promote to `test-vectors/` and named non-author review closes (no public release or hosted service yet).**
 
 | Gate | Status | Evidence / remaining work |
 | --- | --- | --- |
@@ -62,8 +62,8 @@ PAE(type, body) = "DSSEv1" + SP + LEN(type) + SP + type + SP + LEN(body) + SP + 
 | **M4.2** Go/Rust commitments | **Met** | 50/50 native commitment outcomes + 72 shared-policy checks passed ([research/lanes/signing-policy-results.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/lanes/signing-policy-results.md)) |
 | **M4.3** Negative crypto vectors | **Open** | Offline-first registration `REG.1`/`REG.2` vectors shipped in `traceweave` `main` @ `a6066d3` (`docs/reviews/m4-reg-review.md`); `M4.3` stays open until vectors promote to `test-vectors/` and `validate` checks them |
 | **M4.4** Two strict parsers | **Open** | `traceweave` `main` @ `a6066d3` (`docs/reviews/m4-reg-review.md`) ships independent Rust + Go offline-first `traceweave-registration-draft-5` + §4.7 `claims.aiUse` + §9.1 `tw1-`, passing 86/86 positive and 140/140 negative fixtures + 6 cross-CLI interop + 54 `tw1-` + 70 fuzz + 14 B1–B6 probes with 0 divergences and 0 new external dependencies; `M4.4` stays open until `M4.3` vectors promote to `test-vectors/` |
-| **M4.5** in-toto adapter & trust policy | **Open** | Accept/reject fixtures, trust-policy document, and decision on optional RFC 3161 timestamp adapter |
-| **M4.6** Commitment design review | **Open** | Independent non-author review of commitment and disclosure design |
+| **M4.5** in-toto adapter & trust policy | **Met** | [trust-policy.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/trust-policy.md), 4 accept / 26 reject in-toto adapter fixtures wired into `tools/validate.py` ([intoto-adapter-fixtures/README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/intoto-adapter-fixtures/README.md)), [timestamp-adapter-decision.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/timestamp-adapter-decision.md), non-author review [m4-5-intoto-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/m4-5-intoto-review.md) @ `51033c9` |
+| **M4.6** Commitment design review | **Open** | Commitment/disclosure review filed in [docs/reviews/commitment-disclosure-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/docs/reviews/commitment-disclosure-review.md) with `CD-B2` opening-nonce validation fixed and confirmed; stays open pending named non-author closure |
 
 Until all M4 engineering gates close, any experimental detector release must be labelled **unsigned detector-only** (roadmap gate `M5.4`). Sigstore bundles and RFC 3161 timestamps remain optional future integrations, never mandatory public logs ([spec/attestations.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/attestations.md)).
 
