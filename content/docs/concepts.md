@@ -73,6 +73,7 @@ Comparison reports record matching observations only; fields for ownership, sign
 - **Exact-byte commitments** (`sha256-salted-catalogue-v1`) bind a public record to private catalogue bytes using a 32-byte random nonce without disclosing the catalogue until opened ([spec/core.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/core.md)).
 - **Attestations** use a restricted in-toto Statement v1 / DSSE envelope adapter to authenticate exact payload bytes; signature validity, signer trust, subject digest, and timestamp verification are reported independently ([spec/attestations.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/attestations.md)).
 - **Origin review packets** (gate [M2.7](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md), met across the specification and both implementations) live in a separate record referencing a report's `bodySha256` and a region key `(reference id, candidate id, mode, first seed p, first seed q)`.
+- **Shelf cards & `tw1-` references** (prototype; `shelf.traceweave.org` planned) present signed registration records across static sites, Markdown, CMSes, frameworks, and print — see [Embedding & Shelf compatibility checklist](/docs/embedding-and-shelf).
 
 ## Glossary
 

@@ -45,6 +45,12 @@ export const NAV_SECTIONS: NavSection[] = [
         section: "Specification",
       },
       {
+        title: "Embedding & Shelf checklist",
+        href: "/docs/embedding-and-shelf",
+        slug: "embedding-and-shelf",
+        section: "Specification",
+      },
+      {
         title: "Limits & threat model",
         href: "/docs/limits-and-threat-model",
         slug: "limits-and-threat-model",
