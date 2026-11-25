@@ -1,6 +1,6 @@
 {
   "branch": "roadmap-v2",
-  "commit": "ca1347bdfd0122ba34e4dfcc79e77860cc54e7bd",
+  "commit": "8a1150bec529652e2916bb557887d6ca775274a5",
   "files": [
     ".github/pull_request_template.md",
     ".github/workflows/validate.yml",
@@ -497,6 +497,11 @@
     "research/experiments/signing-interop/rust/Cargo.lock",
     "research/experiments/signing-interop/rust/Cargo.toml",
     "research/experiments/signing-interop/rust/src/main.rs",
+    "research/experiments/text-stage1/PROTOCOL.md",
+    "research/experiments/text-stage1/harness.py",
+    "research/experiments/text-stage1/results/e-txt-1/RESULTS.md",
+    "research/experiments/text-stage1/results/e-txt-1/compare.txt",
+    "research/experiments/text-stage1/results/e-txt-1/summary.json",
     "research/extraction-vector-metadata-map.md",
     "research/fragment-policy-checkpoint.md",
     "research/lanes/06-evidence-review.md",
@@ -565,6 +570,7 @@
     "research/reviews/registration-record-review.md",
     "research/reviews/research-06-08-checkpoint-review.md",
     "research/reviews/roadmap-v2-review.md",
+    "research/reviews/text-stage1-protocol-review.md",
     "research/work-queue.md",
     "schemas/README.md",
     "schemas/candidate-generation.schema.json",
