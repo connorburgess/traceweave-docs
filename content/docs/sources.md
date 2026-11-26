@@ -12,7 +12,7 @@ Every factual statement, number, gate count, test-vector example, and research s
 | File | Role on this site |
 | --- | --- |
 | [README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/README.md) | Experimental status (`0.1.0-draft.1`), three separated questions, validation commands, scope |
-| [ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md) | Gate definitions, exact progress counts (29/47 core, all 6/6 M4 met; 21/55 later met, 2 negative-result `TXT.4`/`TXT.8`, 32 open), M0–M5 & later-profile gate tables (`M4.1`–`M4.6`, `TS.3`, `PY.1`–`PY.3`, `TXT.3`, `TXT.4`, `TXT.7`, `TXT.8`, `RES.1`, `C2PA.3`, `IMG.5`, `SK.1`–`SK.5`, `WEB.0`–`WEB.6`), 2026-11-23/24/25 decisions, implementation track status (`12cf016`, `8011b6d`, `a6066d3`, `b5d981c`, `c3c17a8`, `51f29d7`, `5b9a881`) |
+| [ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md) | Gate definitions, exact progress counts (34/47 core, all 6/6 M4 met; 27/55 later met, 2 negative-result `TXT.4`/`TXT.8`, 26 open), M0–M5 & later-profile gate tables (`M4.1`–`M4.6`, `TS.3`, `PY.1`–`PY.3`, `TXT.3`, `TXT.4`, `TXT.7`, `TXT.8`, `RES.1`, `C2PA.3`, `IMG.5`, `SK.1`–`SK.5`, `WEB.0`–`WEB.6`), 2026-11-23/24/25/26 decisions and scoped M5/profile closures, implementation track status (`12cf016`, `8011b6d`, `a6066d3`, `b5d981c`, `c3c17a8`, `51f29d7`, `5b9a881`) |
 | [docs/decisions/code-embedding-decision.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/docs/decisions/code-embedding-decision.md) | Owner decision closing `M2E.0`: source-code embedding omitted from the next release; `M2E.1`–`M2E.7` deferred; still-image finding-aid research separate |
 | [CONTRIBUTING.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/CONTRIBUTING.md) | Contribution rules, CI workflow scope, and validation boundaries |
 | [SECURITY.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/SECURITY.md) | Private-evidence boundaries, hostile-input parsing rules, disclosure guidance |
@@ -135,3 +135,15 @@ Every factual statement, number, gate count, test-vector example, and research s
 | [research/reviews/evaluation-harness-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/evaluation-harness-review.md) | Non-author review and confirmation passes for the M3 evaluation harness (`i3-eval`) |
 | [research/reviews/implementation-merge-i1-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/implementation-merge-i1-review.md) | I1 dual-implementation extractor review (9.89M differential cases) |
 | [research/reviews/implementation-merge-i2-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/implementation-merge-i2-review.md) | I2 dual-implementation comparison and report review (76/76 bodies, 5,000/5,000 clean-room pairs) |
+
+## Reviewed release and profile closure evidence
+
+| File | Role on this site |
+| --- | --- |
+| [docs/release/offline-demo.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/docs/release/offline-demo.md) | Pinned synthetic native demo; dependency-fetch boundary, exact implementation/spec pins and OS network-denial proof; bounded M5.3 evidence only |
+| [docs/release/conformance-matrix.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/docs/release/conformance-matrix.md) | Feature-specific recorded, sampled and unverified implementation evidence; no blanket conformance or Shelf certification |
+| [research/reviews/m5-gate-closure-07c98ca.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/m5-gate-closure-07c98ca.md) | Scoped non-author closure of M5.1, M5.2, M5.4 and M5.5 |
+| [research/reviews/m5-3-gate-closure-24bb4b8.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/m5-3-gate-closure-24bb4b8.md) | Independent exact-recipe closure of M5.3; no release approval |
+| [research/reviews/img-ts-txt-five-gate-closure-73b6d5c.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/img-ts-txt-five-gate-closure-73b6d5c.md) | Scoped IMG.5, TS.1–TS.2 and TXT.1–TXT.2 closures; TSX/Markdown remain deferred |
+| [research/drafts/extraction-profile-image-draft3.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/extraction-profile-image-draft3.md) | Research-only explicit ISCC normalization arithmetic; historical draft-2 configuration unchanged |
+| [research/reviews/imgf1-gate-closure-db2848c.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/imgf1-gate-closure-db2848c.md) | Scoped IMGF.1 research specification closure with provenance, finite-input and single-host limits |
