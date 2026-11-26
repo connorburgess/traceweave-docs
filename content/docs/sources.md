@@ -12,7 +12,7 @@ Every factual statement, number, gate count, test-vector example, and research s
 | File | Role on this site |
 | --- | --- |
 | [README.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/README.md) | Experimental status (`0.1.0-draft.1`), three separated questions, validation commands, scope |
-| [ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md) | Gate definitions, exact progress counts (34/47 core, all 6/6 M4 met; 27/55 later met, 2 negative-result `TXT.4`/`TXT.8`, 26 open), M0–M5 & later-profile gate tables (`M4.1`–`M4.6`, `TS.3`, `PY.1`–`PY.3`, `TXT.3`, `TXT.4`, `TXT.7`, `TXT.8`, `RES.1`, `C2PA.3`, `IMG.5`, `SK.1`–`SK.5`, `WEB.0`–`WEB.6`), 2026-11-23/24/25/26 decisions and scoped M5/profile closures, implementation track status (`12cf016`, `8011b6d`, `a6066d3`, `b5d981c`, `c3c17a8`, `51f29d7`, `5b9a881`) |
+| [ROADMAP.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/ROADMAP.md) | Gate definitions, exact progress counts (34/47 core, all 6/6 M4 met; 28/55 later met, 2 negative-result `TXT.4`/`TXT.8`, 25 open), M0–M5 & later-profile gate tables (`M4.1`–`M4.6`, `TS.3`, `PY.1`–`PY.3`, `TXT.3`, `TXT.4`, `TXT.7`, `TXT.8`, `RES.1`, `C2PA.3`, `IMG.5`, `SK.1`–`SK.5`, `WEB.0`–`WEB.6`), 2026-11-23/24/25/26 decisions and scoped M5/profile closures, implementation track status (`12cf016`, `8011b6d`, `a6066d3`, `b5d981c`, `c3c17a8`, `51f29d7`, `5b9a881`) |
 | [docs/decisions/code-embedding-decision.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/docs/decisions/code-embedding-decision.md) | Owner decision closing `M2E.0`: source-code embedding omitted from the next release; `M2E.1`–`M2E.7` deferred; still-image finding-aid research separate |
 | [CONTRIBUTING.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/CONTRIBUTING.md) | Contribution rules, CI workflow scope, and validation boundaries |
 | [SECURITY.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/SECURITY.md) | Private-evidence boundaries, hostile-input parsing rules, disclosure guidance |
@@ -147,3 +147,10 @@ Every factual statement, number, gate count, test-vector example, and research s
 | [research/reviews/img-ts-txt-five-gate-closure-73b6d5c.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/img-ts-txt-five-gate-closure-73b6d5c.md) | Scoped IMG.5, TS.1–TS.2 and TXT.1–TXT.2 closures; TSX/Markdown remain deferred |
 | [research/drafts/extraction-profile-image-draft3.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/extraction-profile-image-draft3.md) | Research-only explicit ISCC normalization arithmetic; historical draft-2 configuration unchanged |
 | [research/reviews/imgf1-gate-closure-db2848c.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/imgf1-gate-closure-db2848c.md) | Scoped IMGF.1 research specification closure with provenance, finite-input and single-host limits |
+
+## Local-first agent design review
+
+| File | Role on this site |
+| --- | --- |
+| [research/drafts/agent-registration-local-first.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/agent-registration-local-first.md) | Proposed local register/verify semantics; contact held; no implemented adapter |
+| [research/reviews/sk3-design-gate-closure-4fa00c7.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/sk3-design-gate-closure-4fa00c7.md) | SK.3 design-only acceptance of exact 4fa00c7 on independent review 12a1459; I1–I4 unresolved; SK.4/SK.5, defaults and namespace decisions open |

@@ -68,4 +68,4 @@ Every Traceweave registration view follows the mandatory interpretation rules in
 - [Evidence & provenance](/docs/evidence-and-provenance) — registration record `draft-5` structure, `tw1-` references, commitments, and C2PA 2.5 mapping
 - [Profiles](/docs/profiles) — detailed status, parameters, and vectors for every content profile
 - [Limits & threat model](/docs/limits-and-threat-model) — why embedded marks fail in code/text and act only as a finding aid in images
-- [Roadmap & status](/docs/roadmap) — exact gate counts (`34/47` core, all `6/6` M4 met; `27/55` later met, `2` negative-result, `26` open) and implementation status
+- [Roadmap & status](/docs/roadmap) — exact gate counts (`34/47` core, all `6/6` M4 met; `28/55` later met, `2` negative-result, `25` open) and implementation status
