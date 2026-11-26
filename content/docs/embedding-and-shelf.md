@@ -2,13 +2,13 @@
 title: Embedding & Shelf compatibility checklist
 description: Where you can embed Traceweave Shelf cards, what works with JavaScript off versus live in-browser checking, and which content types support registration, fingerprinting, and finding-aid marks.
 section: Specification
-status: Interactive prototype (shelf.traceweave.org planned · traceweave-registration-draft-5)
+status: Interactive prototype (shelf.traceweave.org live · traceweave-registration-draft-5)
 ---
 
 This checklist summarizes where a **Traceweave Shelf** card or `tw1-` text reference can be embedded today, how each platform behaves with and without JavaScript, and which content types work for signed registration, reuse fingerprinting, and finding-aid marks.
 
 > [!NOTE]
-> **Prototype status:** **Traceweave Shelf** is currently an interactive prototype (`shelf.traceweave.org` is planned and not yet live). The underlying registration specification (`traceweave-registration-draft-5`, with §4.7 optional self-declared AI use and §9.1 frozen `tw1-` text reference) is promoted to normative [spec/registration-record.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/registration-record.md) with **all 6/6 M4 gates (`M4.1`–`M4.6`) met** (`traceweave` `main` @ `5b9a881`, pinned to published spec `9cf78ee`, `356/356` vendored files, 0 divergences, 0 external dependencies across Rust and Go CLIs), and the pure-Rust WebAssembly engine (`crates/tw-wasm`, `WEB.0`–`WEB.2` met at `51f29d7`, 0 WASM imports, 0 network calls) runs byte-identical verification offline in the browser. No hosted service or external time-stamping service is operated by the project today.
+> **Prototype status:** [**Traceweave Shelf**](https://shelf.traceweave.org) is live as an interactive prototype. The underlying registration specification (`traceweave-registration-draft-5`, with §4.7 optional self-declared AI use and §9.1 frozen `tw1-` text reference) is promoted to normative [spec/registration-record.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/registration-record.md) with **all 6/6 M4 gates (`M4.1`–`M4.6`) met** (`traceweave` `main` @ `5b9a881`, pinned to published spec `9cf78ee`, `356/356` vendored files, 0 divergences, 0 external dependencies across Rust and Go CLIs), and the pure-Rust WebAssembly engine (`crates/tw-wasm`, `WEB.0`–`WEB.2` met at `51f29d7`, 0 WASM imports, 0 network calls) runs byte-identical verification offline in the browser. The live Shelf site does not imply a hosted signing, witness, or external time-stamping service; those remain subject to separate owner decisions.
 
 ## Where you can embed Traceweave Shelf cards
 
@@ -68,4 +68,4 @@ Every Traceweave registration view follows the mandatory interpretation rules in
 - [Evidence & provenance](/docs/evidence-and-provenance) — registration record `draft-5` structure, `tw1-` references, commitments, and C2PA 2.5 mapping
 - [Profiles](/docs/profiles) — detailed status, parameters, and vectors for every content profile
 - [Limits & threat model](/docs/limits-and-threat-model) — why embedded marks fail in code/text and act only as a finding aid in images
-- [Roadmap & status](/docs/roadmap) — exact gate counts (`28/47` core, all `6/6` M4 met; `21/55` later met, `2` negative-result, `32` open) and implementation status
+- [Roadmap & status](/docs/roadmap) — exact gate counts (`29/47` core, all `6/6` M4 met; `21/55` later met, `2` negative-result, `32` open) and implementation status

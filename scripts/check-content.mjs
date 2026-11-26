@@ -31,7 +31,7 @@ const REQUIRED_TEXT_CHECKS = [
       EXPECTED_OPENING,
       EXPECTED_FOLLOW,
       EXPECTED_STATUS,
-      "28 of 47 core gates met, including all 6/6 M4 gates; 21 of 55 later-profile gates met",
+      "29 of 47 core gates met, including all 6/6 M4 gates; 21 of 55 later-profile gates met",
     ],
   },
   {
@@ -66,7 +66,7 @@ const REQUIRED_TEXT_CHECKS = [
   },
   {
     file: "content/docs/roadmap.md",
-    phrases: ["28", "19", "21", "32", "55", "m3-eval-draft-10", "py-tokens", "b5d981c", "a6066d3", "c3c17a8", "51f29d7", "5b9a881", "e-txt-1", "C2PA.3", "M4.3", "M4.4", "M4.5", "M4.6", "PY.1", "PY.2", "TXT.7", "TXT.8", "RES.1", "SK.1", "SK.2", "WEB.0", "WEB.1", "WEB.2", "0869ebd"],
+    phrases: ["29", "18", "M2E.0", "code-embedding-decision.md", "21", "32", "55", "m3-eval-draft-10", "py-tokens", "b5d981c", "a6066d3", "c3c17a8", "51f29d7", "5b9a881", "e-txt-1", "C2PA.3", "M4.3", "M4.4", "M4.5", "M4.6", "PY.1", "PY.2", "TXT.7", "TXT.8", "RES.1", "SK.1", "SK.2", "WEB.0", "WEB.1", "WEB.2", "7e30cb7"],
   },
   {
     file: "content/docs/evidence-and-provenance.md",
@@ -132,6 +132,7 @@ const ALLOWED_EXTERNAL_HOSTS = new Set([
   "github.com",
   "traceweave.org",
   "docs.traceweave.org",
+  "shelf.traceweave.org",
   "seatbeltlabs.com",
   "creativecommons.org",
   "www.apache.org",

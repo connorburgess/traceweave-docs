@@ -1,6 +1,6 @@
 {
   "branch": "roadmap-v2",
-  "commit": "0869ebd792b9798009da4fe00ea541aca61c2528",
+  "commit": "7e30cb70348454727e42f992eb497b4d95489835",
   "files": [
     ".github/pull_request_template.md",
     ".github/workflows/validate.yml",
@@ -21,6 +21,7 @@
     "docs/assets/traceweave-pipeline-light.svg",
     "docs/assets/traceweave-two-tracks-dark.svg",
     "docs/assets/traceweave-two-tracks-light.svg",
+    "docs/decisions/code-embedding-decision.md",
     "docs/decisions/timestamp-adapter-decision.md",
     "docs/evaluation.md",
     "docs/figures/embedded-mark-workflow.svg",

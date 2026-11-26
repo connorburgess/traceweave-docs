@@ -44,4 +44,4 @@ Measured on 2026-11-21 under a frozen source-only protocol ([research/public-cen
 ## Decisions supported
 
 1. Keep the Go and Rust syntax carriers as weak synthetic controls only — do not promote them to production profiles or build identity framing on top of them.
-2. Prioritize the deterministic **extracted token-fingerprint comparison baseline** (`spec/extraction.md`, `spec/catalogue-report.md`) while keeping embedded marking as an open research track gated on `M2E.0` and `M2E.1`.
+2. Prioritize the deterministic **extracted token-fingerprint comparison baseline** (`spec/extraction.md`, `spec/catalogue-report.md`) with source-code embedding [omitted from the next release by owner decision (`M2E.0`)](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/docs/decisions/code-embedding-decision.md) and `M2E.1`–`M2E.7` deferred.

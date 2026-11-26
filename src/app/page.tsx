@@ -102,7 +102,7 @@ export default function HomePage() {
         </p>
         <p className="home-status-sources">
           See the{" "}
-          <Link href="/docs/roadmap">roadmap and gate counts</Link> (28 of 47
+          <Link href="/docs/roadmap">roadmap and gate counts</Link> (29 of 47
           core gates met, including all 6/6 M4 gates; 21 of 55 later-profile
           gates met, 2 negative-result <code>TXT.4</code>/<code>TXT.8</code>, 32
           open; TypeScript <code>ts-tokens</code>, Python{" "}
