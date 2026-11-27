@@ -69,6 +69,10 @@ const REQUIRED_TEXT_CHECKS = [
     phrases: ["34", "13", "M5.1", "M5.5", "M2E.0", "code-embedding-decision.md", "30", "23", "55", "m3-eval-draft-10", "py-tokens", "b5d981c", "a6066d3", "c3c17a8", "51f29d7", "5b9a881", "e-txt-1", "C2PA.3", "M4.3", "M4.4", "M4.5", "M4.6", "PY.1", "PY.2", "TXT.7", "TXT.8", "RES.1", "SK.1", "SK.2", "SK.3", "design only", "WEB.0", "WEB.1", "WEB.2", "WEB.3", "WEB.4", "170cf5d"],
   },
   {
+    file: "content/docs/embedding-and-shelf.md",
+    phrases: ["`30/55` later met, `2` negative-result, `23` open"],
+  },
+  {
     file: "content/docs/evidence-and-provenance.md",
     phrases: ["traceweave-registration-draft-5", "OpenTimestamps", "tw1-", "a6066d3", "org.traceweave.registration-link", "trust-policy.md", "commitment-disclosure-review.md"],
   },
