@@ -22,7 +22,7 @@ const EXPECTED_FOLLOW =
   "It is designed to cover any kind of work: source code, writing, images and audio. One shared evidence format sits underneath, with a profile for each medium. Your content never leaves your machine; only fingerprints are compared.";
 
 const EXPECTED_STATUS =
-  "Where it stands today: Go, Rust, TypeScript, JavaScript, Python and plain-text draft profiles have native implementation evidence. Offline-first registration is implemented in a private repository. Shelf publishes browser fingerprinting, comparison, report replay and a testing page; WEB.3–WEB.4 acceptance is bounded and WEB.5–WEB.6 remain planned in the published roadmap. Audio and external timestamp acquisition remain planned or gated. It is experimental and not yet evaluated on real-world data.";
+  "Where it stands today: Go, Rust, TypeScript, JavaScript, Python and plain-text draft profiles have native implementation evidence. Offline-first registration is implemented in a private repository. Shelf publishes browser fingerprinting, comparison, report replay and a testing page; WEB.3–WEB.4 flow/testing acceptance and WEB.5 browser-tool source mapping are bounded; WEB.6 remains planned in the published roadmap. Audio and external timestamp acquisition remain planned or gated. It is experimental and not yet evaluated on real-world data.";
 
 const REQUIRED_TEXT_CHECKS = [
   {
@@ -31,7 +31,7 @@ const REQUIRED_TEXT_CHECKS = [
       EXPECTED_OPENING,
       EXPECTED_FOLLOW,
       EXPECTED_STATUS,
-      "34 of 47 core gates met, including all 6/6 M4 gates; 30 of 55 later-profile gates met",
+      "34 of 47 core gates met, including all 6/6 M4 gates; 31 of 55 later-profile gates met",
     ],
   },
   {
@@ -66,11 +66,11 @@ const REQUIRED_TEXT_CHECKS = [
   },
   {
     file: "content/docs/roadmap.md",
-    phrases: ["34", "13", "M5.1", "M5.5", "M2E.0", "code-embedding-decision.md", "30", "23", "55", "m3-eval-draft-10", "py-tokens", "b5d981c", "a6066d3", "c3c17a8", "51f29d7", "5b9a881", "e-txt-1", "C2PA.3", "M4.3", "M4.4", "M4.5", "M4.6", "PY.1", "PY.2", "TXT.7", "TXT.8", "RES.1", "SK.1", "SK.2", "SK.3", "design only", "WEB.0", "WEB.1", "WEB.2", "WEB.3", "WEB.4", "170cf5d"],
+    phrases: ["34", "13", "M5.1", "M5.5", "M2E.0", "code-embedding-decision.md", "31", "22", "55", "m3-eval-draft-10", "py-tokens", "b5d981c", "a6066d3", "c3c17a8", "51f29d7", "5b9a881", "e-txt-1", "C2PA.3", "M4.3", "M4.4", "M4.5", "M4.6", "PY.1", "PY.2", "TXT.7", "TXT.8", "RES.1", "SK.1", "SK.2", "SK.3", "design only", "WEB.0", "WEB.1", "WEB.2", "WEB.3", "WEB.4", "WEB.5", "84e30dc"],
   },
   {
     file: "content/docs/embedding-and-shelf.md",
-    phrases: ["`30/55` later met, `2` negative-result, `23` open"],
+    phrases: ["`31/55` later met, `2` negative-result, `22` open"],
   },
   {
     file: "content/docs/evidence-and-provenance.md",
