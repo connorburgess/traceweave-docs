@@ -14,7 +14,7 @@ This checklist summarizes where a **Traceweave Shelf** card or `tw1-` text refer
 
 [Open Shelf](https://shelf.traceweave.org) and select Fingerprint, Catalogue comparison, Replay report or Testing page (published source `c0c34cc407e39b80b293ccec6e255db0207acd4a`). Replay report recomputes comparison bodies; it does not authenticate original content or replace registration verification. The [bounded WEB.3 closure](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/web3-bounded-gate-closure-99a1a8b.md) covers accepted fixed fixtures, with physical-device, privacy and WEB.6 limits retained.
 
-The [Testing page source notes](https://github.com/connorburgess/traceweave-shelf/blob/c0c34cc407e39b80b293ccec6e255db0207acd4a/docs/testing-page.md) describe six scoped Go lexical operations, six synthetic demonstrations with three both-mode misses, and two distinct controls. These are bounded examples, not general Go transformations or preserved-behavior promises. WEB.4 remains planned at published spec `b1177b6`, even though the page is published; WEB.5 is uncertified and WEB.6 planned. This does not announce public native signing tooling or hosted signing/time services.
+The [Testing page source notes](https://github.com/connorburgess/traceweave-shelf/blob/c0c34cc407e39b80b293ccec6e255db0207acd4a/docs/testing-page.md) describe six scoped Go lexical operations, six synthetic demonstrations with three both-mode misses, and two distinct controls. These are bounded examples, not general Go transformations or preserved-behavior promises. [WEB.4 is bounded met](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/web4-bounded-gate-closure-c0c34cc.md) at published spec `170cf5d`; its finite/shared-ancestry and synthetic DOM/CDP checks do not establish physical-device, privacy, accessibility or performance acceptance; WEB.5 is uncertified and WEB.6 planned. This does not announce public native signing tooling or hosted signing/time services.
 
 ## Where you can embed Traceweave Shelf cards
 
@@ -74,4 +74,4 @@ Every Traceweave registration view follows the mandatory interpretation rules in
 - [Evidence & provenance](/docs/evidence-and-provenance) — registration record `draft-5` structure, `tw1-` references, commitments, and C2PA 2.5 mapping
 - [Profiles](/docs/profiles) — detailed status, parameters, and vectors for every content profile
 - [Limits & threat model](/docs/limits-and-threat-model) — why embedded marks fail in code/text and act only as a finding aid in images
-- [Roadmap & status](/docs/roadmap) — exact gate counts (`34/47` core, all `6/6` M4 met; `29/55` later met, `2` negative-result, `24` open) and implementation status
+- [Roadmap & status](/docs/roadmap) — exact gate counts (`34/47` core, all `6/6` M4 met; `30/55` later met, `2` negative-result, `24` open) and implementation status
