@@ -10,6 +10,12 @@ This checklist summarizes where a **Traceweave Shelf** card or `tw1-` text refer
 > [!NOTE]
 > **Prototype status:** [**Traceweave Shelf**](https://shelf.traceweave.org) is live as an interactive prototype. The underlying registration specification (`traceweave-registration-draft-5`, with §4.7 optional self-declared AI use and §9.1 frozen `tw1-` text reference) is promoted to normative [spec/registration-record.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/registration-record.md) with **all 6/6 M4 gates (`M4.1`–`M4.6`) met** (`traceweave` `main` @ `5b9a881`, pinned to published spec `9cf78ee`, `356/356` vendored files, 0 divergences, 0 external dependencies across Rust and Go CLIs), and the pure-Rust WebAssembly engine (`crates/tw-wasm`, `WEB.0`–`WEB.2` met at `51f29d7`, 0 WASM imports, 0 network calls) runs byte-identical verification offline in the browser. The live Shelf site does not imply a hosted signing, witness, or external time-stamping service; those remain subject to separate owner decisions.
 
+## Browser comparison and testing tabs
+
+[Open Shelf](https://shelf.traceweave.org) and select Fingerprint, Catalogue comparison, Replay report or Testing page (published source `c0c34cc407e39b80b293ccec6e255db0207acd4a`). Replay report recomputes comparison bodies; it does not authenticate original content or replace registration verification. The [bounded WEB.3 closure](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/web3-bounded-gate-closure-99a1a8b.md) covers accepted fixed fixtures, with physical-device, privacy and WEB.6 limits retained.
+
+The [Testing page source notes](https://github.com/connorburgess/traceweave-shelf/blob/c0c34cc407e39b80b293ccec6e255db0207acd4a/docs/testing-page.md) describe six scoped Go lexical operations, six synthetic demonstrations with three both-mode misses, and two distinct controls. These are bounded examples, not general Go transformations or preserved-behavior promises. WEB.4 remains planned at published spec `b1177b6`, even though the page is published; WEB.5 is uncertified and WEB.6 planned. This does not announce public native signing tooling or hosted signing/time services.
+
 ## Where you can embed Traceweave Shelf cards
 
 Every Traceweave registration is a static, self-contained bundle (`traceweave-registration-bundle-draft-5`) plus a short deterministic text reference (`tw1-` + 27 Crockford base32 characters, [spec/registration-record.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/spec/registration-record.md) §9.1). Embedding needs no central database and no server-side API.
@@ -68,4 +74,4 @@ Every Traceweave registration view follows the mandatory interpretation rules in
 - [Evidence & provenance](/docs/evidence-and-provenance) — registration record `draft-5` structure, `tw1-` references, commitments, and C2PA 2.5 mapping
 - [Profiles](/docs/profiles) — detailed status, parameters, and vectors for every content profile
 - [Limits & threat model](/docs/limits-and-threat-model) — why embedded marks fail in code/text and act only as a finding aid in images
-- [Roadmap & status](/docs/roadmap) — exact gate counts (`34/47` core, all `6/6` M4 met; `28/55` later met, `2` negative-result, `25` open) and implementation status
+- [Roadmap & status](/docs/roadmap) — exact gate counts (`34/47` core, all `6/6` M4 met; `29/55` later met, `2` negative-result, `24` open) and implementation status
