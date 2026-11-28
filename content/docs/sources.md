@@ -153,7 +153,9 @@ Every factual statement, number, gate count, test-vector example, and research s
 | File | Role on this site |
 | --- | --- |
 | [research/drafts/agent-registration-local-first.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/drafts/agent-registration-local-first.md) | Proposed local register/verify semantics; contact held; no implemented adapter |
-| [research/reviews/sk3-design-gate-closure-4fa00c7.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/sk3-design-gate-closure-4fa00c7.md) | SK.3 design-only acceptance of exact 4fa00c7 on independent review 12a1459; I1–I4 unresolved; SK.4/SK.5, defaults and namespace decisions open |
+| [research/reviews/sk3-design-gate-closure-4fa00c7.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/sk3-design-gate-closure-4fa00c7.md) | SK.3 design-only acceptance of exact 4fa00c7 on independent review 12a1459; historical I1–I4 findings; current offline I2/I3 disposition is listed below; SK.4/SK.5, defaults and namespace decisions open |
+| [research/reviews/agent-registration-checker-i2-i3-dispositions.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/agent-registration-checker-i2-i3-dispositions.md) | Offline-checker I2/I3 corrections, C1 clarification and unresolved normative I1/I4 choices; no native/client/hosting conformance |
+| [research/reviews/agent-checker-ccb04f6-independent-review.md](https://github.com/connorburgess/traceweave-spec/blob/roadmap-v2/research/reviews/agent-checker-ccb04f6-independent-review.md) | Independent bounded checker review; fixture results are not native implementation conformance |
 
 ## Published browser-flow evidence
 
