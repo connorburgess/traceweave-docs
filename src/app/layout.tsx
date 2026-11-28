@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
 };
 
-const THEME_INIT_SCRIPT = `(function(){try{var m=localStorage.getItem("traceweave-theme");if(m==="light"||m==="dark"){document.documentElement.setAttribute("data-theme",m);}}catch(e){}})();`;
+const THEME_INIT_SCRIPT = `(function(){try{var m=localStorage.getItem("traceweave-theme");if(m==="light"||m==="dark"){document.documentElement.setAttribute("data-theme",m);}if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("has-motion");setTimeout(function(){document.documentElement.classList.add("hero-entered");},1500);}}catch(e){}})();`;
 
 export default function RootLayout({
   children,
