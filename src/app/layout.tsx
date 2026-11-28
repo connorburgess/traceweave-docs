@@ -6,6 +6,7 @@ import "@fontsource/ibm-plex-sans/700.css";
 import "@fontsource/ibm-plex-mono/400.css";
 import "@fontsource/ibm-plex-mono/500.css";
 import "@fontsource/archivo/800.css";
+import { DocsMotion } from "@/components/DocsMotion";
 import "./globals.css";
 
 const SITE_DESCRIPTION =
@@ -41,7 +42,10 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <DocsMotion />
+        {children}
+      </body>
     </html>
   );
 }
